@@ -1,0 +1,49 @@
+# section information
+section:
+  name: Skills
+  id: skills
+  enable: true
+  weight: 2
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# Your Skills.
+# Give a summary of you each skill in the summary section.
+skills:
+- name: R programming
+  logo: "/images/sections/skills/r.png"
+  summary: "Capable of building end to end analytic/automation programms with the R language.Experinced with API creation ,analytics pipelines and visualisation"
+
+- name: Python
+  logo: "/images/sections/skills/python.png"
+  summary: "Using as the main language for automation.Capable of building reliable analytic dashboards and ML algorithms using python."
+
+- name: Excel
+  logo: "/images/sections/skills/excel.png"
+  summary: "With excel i can build automation and analytic tools for business.I have previously designed reporting dashboards and data management tools"
+
+- name: Machine Learning
+  logo: "/images/sections/skills/ml.png"
+  summary: "I am capable of building reliable predictive Machine learning algorithms that are statisticaly sound and applicable in day to day business lines."
+
+- name: Data Visualisation
+  logo: "/images/sections/skills/dashboard.png"
+  summary: "Capable of building realtime Visualisation dashboards using tools such Shiny-R,plotly-python and Django-python"
+
+- name: Statistics
+  logo: "/images/sections/skills/stats.png"
+  summary: "I am capable of carring out indepth statistical data analysis and reporting.Experinced with hypothesis testing,regression ,clustering and other predictive models."
+
+- name: Databases
+  logo: "/images/sections/skills/db.png"
+  summary: "I have experince in database management with tools such as SQL.I have previously worked with 
+  SQLite database to build applications."
+
+- name: Other Programming languages
+  logo: "/images/sections/skills/coding.jpg"
+  summary: "I have worked with HTML,CSS,JS to build applications' front end user interfaces.Also know basic php"
+
+- name: Other Analytics tools
+  logo: "/images/sections/skills/stata.jpg"
+  summary: "Know basic SPSS and STATA programs for Statistical data analysis."

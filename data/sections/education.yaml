@@ -1,0 +1,55 @@
+# section information
+section:
+  name: Education
+  id: education
+  template: sections/education.html # Use "sections/education-alt.html for alternate template.
+  enable: true
+  weight: 4
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+degrees:
+- name: Bsc Statistics and Programming
+  icon: fa-graduation-cap
+  timeframe: 2012-2027
+  institution:
+    name: Kenyatta University
+    url: "www.ku.ac.ke"
+  grade: #(optional)
+- name: Certificate in Leadership Development and Mentorship
+  icon: fa-graduation-cap
+  timeframe: 2017
+  institution:
+    name: Kenyatta Univesity
+    url: "#"
+    
+- name: Machine Learning with R 
+  icon: fa-school
+  timeframe: 2018
+  institution:
+    name: Cognitive Class ,IBM
+
+- name: Machine Learning with Python 
+  icon: fa-school
+  timeframe: 2018
+  institution:
+    name: Cognitive Class ,IBM
+    
+- name: SQL and Relational Databases 101 
+  icon: fa-school
+  timeframe: 2018
+  institution:
+    name: Cognitive Class ,IBM
+
+- name: Data Science Methodology
+  icon: fa-school
+  timeframe: 2018
+  institution:
+    name: Cognitive Class ,IBM
+
+- name: Secondary School Certificate
+  icon: fa-school
+  timeframe: 2007-2010
+  institution:
+    name: Sawagongo High School

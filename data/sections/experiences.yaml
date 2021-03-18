@@ -1,0 +1,55 @@
+# section information
+section:
+  name: Experiences
+  id: experiences
+  enable: true
+  weight: 3
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true 
+
+# Your experiences
+experiences:
+- company:
+    name: Maisha Microfinance Bank.
+    url: "https://www.maishabank.com"
+    location: Nairobi
+    # company overview
+    overview:  Maisha Microfinance Bank is widely known as one the few Microfinance institutions that offers low cost digital loans.
+  positions:
+  - designation: Digital chanells officer.
+    start: Sep 2019
+    # don't provide end date if you are currently working there. It will be replaced by "Present"
+    # end: Dec 2020
+    # give some points about what was your responsibilities at the company.
+    responsibilities:
+    - Design end to end automation stcripts.
+    - Design optimum credit scores using machine learning and artificial inteligence techniques.
+    - Design and Deploy visualisation dashboards for monitoring processes in the bank.
+    - Ensure customer satifaction in the digital platform.
+
+- company:
+    name: Ruralnet ICT Academy.
+    location: Siaya-Ugunja
+    overview: PreExample Co. is a gateway company to enter into Example co. So, nothing special here.
+  positions:
+  - designation: ICT Tutor
+    start: September 2017
+    end: August 2019
+    responsibilities:
+    - Trained professionally to over 50 students on using statistical packages R, Python, SPSS and Advanced Excel alongside offering statistical data analysis services to research students.
+    - Introduced quality data science and analytics training which increased the intake and revenue significantly.
+    - Proposed, designed and implemented a new student’s information management and tracking system database which improved efficiency in the office.
+
+- company:
+    name: Self Employment.
+    location: 
+    overview: While in this role i leared a wide range of ML and programming tools.
+  positions:
+  - designation: Freelancer
+    start: November 2017
+    end: September 2019
+    responsibilities:
+    - Built and published machine learning models (supervised and unsupervised) with high levels of accuracy.
+    - Built interactive visualization dashboard using R shiny package.
+    - Count me as an intern.

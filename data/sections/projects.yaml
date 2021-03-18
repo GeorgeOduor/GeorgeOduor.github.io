@@ -1,0 +1,112 @@
+# section information
+section:
+  name: Projects
+  id: projects
+  enable: true
+  weight: 5
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# filter buttons
+buttons:
+- name: All
+  filter: "all"
+- name: R
+  filter: "r"
+- name: Python
+  filter: "python"
+- name: Others
+  filter: "others"
+
+# your projects
+projects:
+- name: KCSE performance trend
+  logo: /images/sections/projects/kcse.png
+  role: Analyst
+  timeline: "2019"
+  # repo: https://github.com/kubernetes/kubernetes # If your project is a public repo on GitHub, then provide this link. it will show star count.
+  url: "https://georgeapp.shinyapps.io/kcsetrend"  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
+  summary: This Visualisation in shiny shows a closser look into Kenya's national performance in KCSE trend for a period of five years.Data as provided by KNBS.
+  tags: ["r","data-visualization","shiny"]
+
+- name: Aid-Worker Insecurity Insight
+  logo: /images/sections/projects/aidworker.jpg
+  role: Analyst
+  timeline: "2019"
+  # repo: https://github.com/tensorflow/tensorflow
+  url: "http://georgeapp.shinyapps.io/insecurityinsight"
+  summary: This is an interactive visualisation dashboard showing casualties of the aid workers throughout the world.Data as provided by humanitarian Data Exchange.
+  tags: ["r","data-visualization","shiny"]
+
+- name: Breast Cancer Predictions (SVM)
+  role: Analyst
+  timeline: "2019"
+  repo: "https://github.com/GeorgeOduor/Support-Vector-Machines-IN-R"
+  summary: This project features application of Support vector machines in a classification problem to predict patients with Brest cancer.
+  tags: ["r","machine-learning"]
+
+- name: Product Sales(Big Mart)
+  # logo: /images/sections/projects/no-code.png
+  role: Analyst
+  timeline: "2019"
+  repo: https://github.com/GeorgeOduor/bigmart
+  #url: ""
+  summary: The aim of this project is to build a predictive model to find out the sales of each product at any store.
+  tags: ["r","machine-learning"]
+
+- name: Customer Churn Prediction
+  logo: /images/sections/projects/toha.png
+  role: Owner
+  timeline: " 2019"
+  repo: https://github.com/GeorgeOduor/Python_Statistical_Analysis/blob/master
+  summary: The project investigated the factors that lead to customer churn and predicted the probability of a client.#
+  tags: ["python","machine-learning"]
+
+- name: Credit Risk Analysis
+  logo: /images/sections/projects/toha.png
+  role: Owner
+  timeline: "2019 "
+  repo: https://github.com/GeorgeOduor/decisiontrees
+  summary: This project predicts whether a customer is credit worthy or not using Decision tree classification algorithm.
+  tags: ["python","machine-learning"]
+
+- name: Credit Risk Analysis
+  # logo: /images/sections/projects/toha.png
+  role: Owner
+  timeline: "2019"
+  repo: https://github.com/GeorgeOduor/decisiontrees
+  summary: This project predicts whether a customer is credit worthy or not using Decision tree classification algorithm.
+  tags: ["python","machine-learning"]
+
+- name: K Nearest Neighbours
+  # logo: /images/sections/projects/toha.png
+  role: Owner/Analyst
+  timeline: "2019"
+  repo: https://github.com/GeorgeOduor/KNN-Algorithm
+  summary: This an anonymised data classification project with KNN algorithm.The projects give a 95% accuracy after improvement by feature scalling and hyper parameter tuning.
+  tags: ["python","machine-learning"]
+
+- name: Digital Marketing
+  # logo: /images/sections/projects/toha.png
+  role: Owner/Analyst
+  timeline: "2019"
+  repo: https://github.com/GeorgeOduor/KNN-Algorithm
+  summary: The project predicts whether an ad will be clicked by a user or not based on the features.Data is an advertising data collected by a team of data scientists over the year 2016.
+  tags: ["python","machine-learning"]
+
+- name: mpesaR package
+  # logo: /images/sections/projects/toha.png
+  role: Owner/Analyst
+  timeline: "2019"
+  repo: https://github.com/GeorgeOduor/KNN-Algorithm
+  summary: Light package in R used for parsing and analysing MPESA statements.MPESA statements are customer financial statements provided by the Safaricom Company to their customers.
+  tags: ["r","programming"]
+
+- name: Handling Data with STATA
+  logo: /images/sections/projects/stata2.png
+  role: Owner/Analyst
+  timeline: "2019"
+  repo: https://github.com/GeorgeOduor/KNN-Algorithm
+  summary: Preliminary data analysis with STATA.
+  tags: ["others","STATA"]

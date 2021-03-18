@@ -1,0 +1,18 @@
+# some information about you
+name: "George Oduor"
+nickname: "George"
+# greeting message before your name. it will default to "Hi! I am" if not provided
+greeting: "Hi, I am"
+image: "images/author/george.jpg"
+# give your some contact information. they will be used in the footer
+contactInfo:
+  email: "george.wamaya@gmail.com"
+  phone: "+254711894704"
+
+# some summary about what you do
+summary:
+  - I am a Statistician
+  - I am a Data Science Enthusiast
+  - I love drilling sense out of Data
+  - I research on ML and AI
+  - I love to work with some fun projects

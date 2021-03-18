@@ -1,7 +1,7 @@
 baseURL: http://example.org/
 languageCode: en-us
 defaultContentLanguage: en
-title: "Toha"
+title: "George"
 theme: "toha"
 
 # Manage languages
@@ -10,27 +10,7 @@ languages:
   en:
     languageName: English
     weight: 1
-  bn:
-    languageName: বাংলা
-    weight: 2
-  fr:
-    languageName: Français
-    weight: 3
-  id:
-    languageName: Indonesian
-    weight: 4
-  de:
-    languageName: Deutsch
-    weight: 5
-  es:
-    languageName: Spanish
-    weight: 6
-  it:
-    languageName: Italian
-    weight: 7
-  cn:
-    languageName: 中文
-    weight: 8
+
 
 # At least HTML and JSON are required for the main HTML content and
 # client-side JavaScript search

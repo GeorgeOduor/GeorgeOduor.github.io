@@ -1,0 +1,480 @@
+---
+title: "OOP in R,Simulating a banking system."
+author: "George Oduor"
+date:  2021-06-14T21:13:14-05:000
+categories: ["R"]
+tags: ["R", "Object Oriented Programming","Tips and Techniques"]
+img : 'oop.png'
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>Object Oriented Programming has been the best way to write programs in any language.But why OOP technique?As a matter of fact our physical world is made up of objects with different qualities.OOP is based on the concept of “object” which can contain data or code.</p>
+<p>A good example can be a an animal object with several properties like movement,sound,diet,life span etc.We can also talk about a “bank object” , which I will be considering in this post, with properties like customers,accounts and methods like accounts creation,loan repayments etc.</p>
+</div>
+<div id="why-oop-in-r." class="section level2">
+<h2>Why OOP in R.</h2>
+<p>Well,personally I begun my R journey with simple procedural oriented programming then I graduates to functional programming.Its only after being exposed to the goodies that come with structuring my scripts in an Object Oriented Way using python.R offers more than one method of writing Object Oriented programs such as S3,S4,R6 etc.In this post i will focus on using R6 Classes offered by the <a href="https://r6.r-lib.org/articles/Introduction.html">R6 package</a>.This is because it gives an almost similar method Python uses.If you are not good with python,you have nothing to worry,all you need to know is how to write an R function and simple operations.</p>
+<p>Much about OOP can be found <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">here</a>.</p>
+<p>Some key concepts we are going to learn here are:</p>
+<ol style="list-style-type: decimal">
+<li>Classes Definition</li>
+<li>Class instances</li>
+<li>Methods:</li>
+</ol>
+<ul>
+<li>Public</li>
+<li>Private</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Introspection</li>
+</ol>
+<div id="hypothetical-example." class="section level3">
+<h3>Hypothetical example.</h3>
+<p>In this post,I will go through a simple banking system that enables its us to:
+1. Create accounts</p>
+<ol style="list-style-type: decimal">
+<li><p>Make deposits</p></li>
+<li><p>Make withdrawals</p></li>
+<li><p>Request and pay loans.</p></li>
+<li><p>Simulate a simple USSD request in the console.</p></li>
+</ol>
+<p>Excited?Lets proceed.</p>
+</div>
+<div id="required-packages." class="section level3">
+<h3>Required packages.</h3>
+<p>We will only need two packages for this project,namely ,<a href="https://www.tidyverse.org/">tidyverse</a> and <a href="https://r6.r-lib.org/articles/Introduction.html">R6</a>.</p>
+<p>Install these packages if you don have them already in your current R installation.</p>
+<pre class="r"><code>#install.packages(&quot;R6&quot;)
+#install.packages(&quot;tidyverse&quot;)
+# load the packages here
+suppressWarnings(suppressPackageStartupMessages(library(R6)))
+suppressWarnings(suppressPackageStartupMessages(library(tidyverse)))</code></pre>
+</div>
+</div>
+<div id="defining-classes" class="section level2">
+<h2>Defining Classes</h2>
+<p>The focal point of OOP is a <strong>class</strong> which are used to create <strong>objects.</strong> A class is is the blueprint of an object.It literally describes describes what an object will be but separate from the object itself.The same class can be used to for creating multiple objects.</p>
+<p>R6 Classes are created using the key word <code>R6Class</code>.It contains functions called <strong>methods</strong>.The methods specify the behavior and actions that an object created with the same class can perform using its specif data.</p>
+<p>Its important to take note of two most important arguments of the class:</p>
+<ol style="list-style-type: decimal">
+<li><p><code>classname</code> : Defines the class name.Not required for the class to work though,but as described in the package documentation,its useful for S3 method dispatch.</p></li>
+<li><p><code>public</code> : A list of public members, which can be functions (methods) and non-functions (fields).</p></li>
+</ol>
+<p>Below is a simple way to create a class in R6.First ,lets call our class <em>CBS</em>-short for core banking system.</p>
+<pre class="r"><code>CBS &lt;- R6Class(classname = &quot;CBS&quot;,public = list(
+  accs = tibble(&quot;Full Name&quot; = NA,&quot;IDNo&quot; = NA,&#39;AccountNo&#39; = NA,&#39;AccountBalance&#39; = NA,&#39;LoanBalance&#39; = NA),
+  bank_name = NA,
+  initialize = function(accs = NULL,bank_name) {
+    self$bank_name = bank_name
+    cat(paste(&#39; --------- \n This is &#39;,self$bank_name,&#39;. \n --------- \n&#39;))
+  }
+))</code></pre>
+<p>In the above class i have defined a class <code>CBS</code> with a method <code>initialize()</code>.For someone coming from python,you can think of this as the <code>__init__</code> method.It is called when an instance of the object class is created using the class name as function.In this method the <code>self$attribute</code> can be used to set the initial value of an instance’s attributes.</p>
+</div>
+<div id="class-instantiation." class="section level2">
+<h2>Class instantiation.</h2>
+<p>Instances are objects built from classes which contains real data and objects.To instantiate an object of the class above we use, <code>$new()</code> method as shown below.Lets call our bank <strong>ABCBank</strong>.</p>
+<pre class="r"><code>ABCBank &lt;- CBS$new(bank_name = &#39;ABCBank&#39;)</code></pre>
+<pre><code>##  --------- 
+##  This is  ABCBank . 
+##  ---------</code></pre>
+</div>
+<div id="methods-and-class-atributes." class="section level2">
+<h2>Methods and class atributes.</h2>
+<p>Classes have other methods defined to add functionality to them.These methods are basically functions.</p>
+<p>Class attributes on the other hand are created by assigning variables within the body of the class,eg ‘bank_name’ and ‘accs’ in the above example.They are accessible within the class.To access these attributes you will use the self$attribute parameter as explained above.</p>
+<p>To build our core banking system ,we will need some methods to offer functionality.At this point you will need the knowledge of R functions.</p>
+</div>
+<div id="tldr" class="section level2">
+<h2><strong>Tl;dr</strong></h2>
+<div id="account-creation-method." class="section level3">
+<h3>Account Creation method.</h3>
+<p>A client will need his/her First Name,Second Name and National ID Number for this.</p>
+<pre class="r"><code>create_account = function(FirstName=NULL,SecondName=NULL,IDNo=NULL) {
+    FirstName = readline(prompt = &quot;Enter FirstName: &quot;)
+    SecondName = readline(prompt = &quot;Enter SecondName: &quot;)
+    IDNo = readline(prompt = &quot;Enter IDNo: &quot;)
+    id_acc = private$account_setup(IDNo)
+    account_details = tibble(&quot;Full Name&quot; = paste(FirstName,SecondName),&quot;IDNo&quot; = as.character(pluck(id_acc,&#39;IDNo&#39;)),
+                             &#39;AccountNo&#39; = pluck(id_acc,&#39;accno&#39;),&#39;AccountBalance&#39; = 0,&#39;LoanBalance&#39; = 0)
+    self$accs = bind_rows(self$accs,account_details) %&gt;% filter(!is.na(IDNo))
+    cat(sprintf(&quot;Hi %s, welcome to ABCBank.We look foward to doing business  with you!\nYour account number is %s&quot;,FirstName,account_details$AccountNo))
+  }</code></pre>
+<p>The above function simply creates a tibble data frame of the newly created account and adds it to the existing accounts.Other properties like <code>private$</code> included will be explained bellow.</p>
+</div>
+<div id="deposit-method" class="section level3">
+<h3>Deposit Method</h3>
+<p>In order for our clients to make deposits,we will require their loan accounts and amount to be deposited as shown in the function below.</p>
+<pre class="r"><code>make_deposit = function(acc=NULL,Amount=NULL){
+    acc = readline(prompt = &quot;Enter acc &quot;)
+    Amount = as.numeric(readline(prompt = &quot;Enter Amount &quot;))
+    private$check_acc(acc = acc,expr = {
+      self$accs = self$accs %&gt;% mutate(AccountBalance = ifelse(AccountNo == acc,AccountBalance+Amount,AccountBalance))
+      cat(glue(&quot;Dear Customer,your deposit of Ksh {Amount} was received successfully.Your current balance is Ksh {
+                   pull(filter(self$accs,AccountNo == acc),AccountBalance )}&quot;))})
+  }</code></pre>
+<p>You can notice that a message is sent to the client after making the deposit.</p>
+</div>
+<div id="withdrawal-method" class="section level3">
+<h3>Withdrawal method</h3>
+<pre class="r"><code>make_withdrawal = function(acc=NULL,Amount=NULL){
+    acc = readline(prompt = &quot;Enter acc &quot;)
+    Amount =  as.numeric(readline(prompt = &quot;Enter Amount &quot;))
+    private$check_acc(acc = acc,expr = {
+      info = filter(self$accs,AccountNo == acc)
+      if ( (pull(info,AccountBalance) - 100) &gt; Amount ) {
+        self$accs &lt;- self$accs %&gt;% mutate(
+          AccountBalance = ifelse(AccountNo == acc,AccountBalance - Amount,AccountBalance)
+        )
+      }else{
+        message(paste(&#39; ----------\n Dear &#39;,pull(info,`Full Name`),&#39;,we are unable to process a your request due to low balance in your account.Please try a lower value&#39;))
+      }
+    })
+    
+  }</code></pre>
+<p>Quick overview of whats going on here:
+In order for a withdrawal to be successful ,correct account is supplied plus an amount which wont leave the account with less than Ksh 100.</p>
+</div>
+<div id="account-balance" class="section level3">
+<h3>Account Balance</h3>
+<p>To check account balance we need just the account number then following is just simple filter method from all the accounts.</p>
+<pre class="r"><code>check_balance = function(acc=NULL){
+    acc = readline(prompt = &quot;Enter acc &quot;)
+    private$check_acc(acc = acc,expr = {
+     balance =  self$accs %&gt;% filter(AccountNo == acc) %&gt;% pull(AccountBalance)
+     message(glue(&quot;--------------\n Dear Customer,your account balance is Ksh {balance}.\n--------------&quot;))
+    })
+  }</code></pre>
+</div>
+<div id="loan-request-method" class="section level3">
+<h3>Loan Request Method</h3>
+<p>All this method does is simply to check if supplied account number is accurate,check if the client has existing loan to avoid multiple loan disbursements.</p>
+<p>Notice that to access client database you need the <code>self$accs</code> which has the list of all clients.</p>
+<pre class="r"><code>request_loan = function(acc=NULL,Amount=NULL){
+    acc = readline(prompt = &quot;Enter acc &quot;)
+    Amount =  as.numeric(readline(prompt = &quot;Enter Amount &quot;))
+    private$check_acc(acc = acc,expr = {
+      info = filter(self$accs,AccountNo == acc)
+      if ( (pull(info,LoanBalance)) &lt;= 0 ) {
+        self$accs = self$accs %&gt;% mutate(LoanBalance = ifelse(AccountNo == acc,Amount,LoanBalance))
+        cat(glue(&quot;Dear Customer,your loan request of Ksh {Amount} was processed successfully.
+                 Your outstanding loan balance is Ksh {pull(filter(self$accs,AccountNo == acc),LoanBalance )}&quot;))
+      }else{
+        message(glue(&quot;Dear Customer,your loan request of Ksh {Amount} was not successfull.
+                     Please clear your outstanding loan balance of Ksh {pull(filter(self$accs,AccountNo == acc),LoanBalance )}.&quot;))
+      }
+    })
+  }</code></pre>
+</div>
+</div>
+<div id="loan-repayment" class="section level2">
+<h2>Loan Repayment</h2>
+<p>Same as the above,we only need the account number and amount to be repaid.If the amount is more than the balance,the extra amount is added to the transnational account balance.</p>
+<p>If the clients tries to repay a loan which inst existing ,the program shuts and the transaction is canceled.</p>
+<p>Nice ,right?</p>
+<pre class="r"><code> repay_loan = function(acc=NULL,Amount=NULL) {
+    acc = readline(prompt = &quot;Enter acc &quot;)
+    Amount =  as.numeric(readline(prompt = &quot;Enter Amount &quot;))
+    private$check_acc(acc = acc,expr = {
+      info = filter(self$accs,AccountNo == acc)
+      if ((pull(info,LoanBalance)) &gt; 0 ) {
+        self$accs = self$accs %&gt;% mutate(LoanBalance = ifelse(AccountNo == acc,LoanBalance-Amount,LoanBalance),
+                                         AccountBalance = ifelse((AccountNo == acc) &amp; (LoanBalance&lt;0),abs(LoanBalance)+AccountBalance,AccountBalance ),
+                                         LoanBalance = ifelse(LoanBalance &lt; 0 ,0,LoanBalance))
+        if ( (pull(info,LoanBalance)) &gt;= Amount ) {
+          
+          cat(glue(&quot;Dear Customer,your loan payment of Ksh {Amount} was processed successfully.Your outstanding loan balance is Ksh {
+                   pull(filter(self$accs,AccountNo == acc),LoanBalance )}&quot;))
+        }else{
+          cat(glue(&quot;Dear Customer,your loan payment of Ksh {Amount} was processed successfully.Your loan is cleared,extra amount of Ksh {abs((pull(info,LoanBalance)) - Amount)} was deposited in your transactional account&quot;))
+        }
+      }else{
+        message(&quot;Dear Customer,you do not have an existing loan.&quot;)
+      }
+    })
+  }</code></pre>
+<div id="checking-loan-balance" class="section level3">
+<h3>Checking Loan Balance</h3>
+<p>Works same as Account balance check.</p>
+<pre class="r"><code>check_loan_balance = function(acc=NULL){
+    acc = readline(prompt = &quot;Enter acc &quot;)
+    private$check_acc(acc = acc,expr = {
+      balance =  self$accs %&gt;% filter(AccountNo == acc) %&gt;% pull(LoanBalance)
+      cat(glue(&quot;--------------\n Dear Customer,your loan account balance is Ksh {balance}.\n--------------&quot;))
+    })
+  }</code></pre>
+</div>
+<div id="simulating-ussd-in-the-console-method" class="section level3">
+<h3>Simulating USSD in the console method</h3>
+<p>You would like the access all these methods with a single call of this class.We will access all the methods in the class using the <code>self$method</code> parameter.</p>
+<p>For efficiency purposes a new client who has just registered is taken to the menu straight away.</p>
+<pre class="r"><code>get_services = function(acc = NULL) {
+    if (is.null(acc)) {
+      cat(&#39;Welcome to ABC Banking Services!\nSelect\n1:Create new account\n2:Deposit\n3:Withdraw\n4:Request Loan\n5:Repay Loan\n6:My Account Balance\n7:My Loan Balance&#39;)
+      input &lt;- readline(prompt=&quot;Enter here: &quot;) 
+      switch (as.character(input),
+              &quot;1&quot; = self$create_account(),&quot;2&quot; = self$make_deposit(),&quot;3&quot; = self$make_withdrawal(),
+              &quot;4&quot; = self$request_loan(),&quot;5&quot; = self$repay_loan(),&quot;6&quot; = self$check_balance(),&quot;7&quot; = self$check_loan_balance()
+      )
+    }else{
+      cat(paste(&#39;-----------\nSelect\n1:Deposit\n2:Withdraw\n3:Request Loan\n4:Repay Loan\n5:My Account Balance\n6:My Loan Balance&#39;))
+      input &lt;- readline(prompt=&quot;Enter here: &quot;) 
+      switch (as.character(input),
+              &quot;1&quot; = self$make_deposit(),&quot;2&quot; = self$make_withdrawal(),&quot;3&quot; = self$request_loan(),&quot;4&quot; = self$repay_loan(),
+              &quot;5&quot; = self$check_balance(),&quot;6&quot; = self$check_loan_balance()
+      )
+    }
+   
+  }</code></pre>
+</div>
+</div>
+<div id="controlling-access-to-methods." class="section level2">
+<h2>Controlling access to methods.</h2>
+<p>R6 classes has two main ways of controlling access.These are part of the class arguments but are not</p>
+<ol style="list-style-type: decimal">
+<li><code>private</code> : An optional list of private members, which can be functions and non-functions.To access these methods,we use the <code>private$method</code> or <code>private$attribute</code> parameters.</li>
+</ol>
+<p>In our models ,we can see that we called <code>private$check_acc</code> and <code>private$account_setup</code> methods.Lets explain what they do down here.</p>
+<div id="private-methods-account_setup" class="section level3">
+<h3>Private Methods : account_setup</h3>
+<p>This function generates new account numbers and checks if it is similar to any account previously generated.If this is true it generates again until a unique one is made.This ensures that the generated account number is unique.The function also check if a client tries to register twice with the same National ID Number.If so,the client is prompted to enter a new one.</p>
+<pre class="r"><code>account_setup = function(IDNo) {
+    if (nrow(filter(self$accs,!is.na(IDNo)) &gt; 0 )) {
+      accno =  paste0(&quot;00&quot;,substr(paste0(sample(1:100, 12, replace=F),collapse = &quot;&quot;),1,9))
+      while (accno %in% self$accs$AccountNo) {
+        accno = as.character(rstudioapi::showPrompt(title = &quot;IDNo&quot;,message = &quot;Enter here&quot;))
+      }
+    }else{
+      accno =  paste0(&quot;00&quot;,substr(paste0(sample(1:100, 12, replace=F),collapse = &quot;&quot;),1,9))
+    }
+    # check if user exists
+    if (nrow(filter(self$accs,!is.na(IDNo)) &gt; 0 )) {
+      while (IDNo %in% self$accs$IDNo) {
+        IDNo = as.character(rstudioapi::showPrompt(title = &quot;IDNo&quot;,message = &quot;That ID already exists,Enter correct IDNo &quot;))
+      }
+    }else{
+      IDNo = IDNo
+    }
+    out = list(
+      &#39;IDNo&#39; = IDNo,
+      &#39;accno&#39; = accno
+    )
+    return(out)
+  }</code></pre>
+</div>
+<div id="private-methods-check_acc" class="section level3">
+<h3>Private Methods : check_acc</h3>
+<p>For any transaction,we will need an account number.It is therefore important to check the validity of the account entered using one single function defined in the private method as shown.</p>
+<pre class="r"><code> check_acc = function(acc,expr={...}) {
+       if (acc %in% self$accs$AccountNo) {
+         expr
+       }else{
+         message(&quot;Account Supplied doesn&#39;t exist!&quot;)
+       }
+     }</code></pre>
+</div>
+</div>
+<div id="final-program" class="section level2">
+<h2>Final Program</h2>
+<p>All the way up to this point,below is the all the methods and attribute combined in the class.</p>
+<pre class="r"><code>CBS &lt;- R6Class(classname = &quot;CBS&quot;,public = list(
+  accs = tibble(&quot;Full Name&quot; = NA,&quot;IDNo&quot; = NA,&#39;AccountNo&#39; = NA,&#39;AccountBalance&#39; = NA,&#39;LoanBalance&#39; = NA),
+  bank_name = NA,
+  initialize = function(accs = NULL,bank_name) {
+    self$bank_name = bank_name
+    cat(paste(&#39; --------- \n This is &#39;,self$bank_name,&#39;. \n --------- \n&#39;))
+  },
+  create_account = function(FirstName=NULL,SecondName=NULL,IDNo=NULL) {
+    FirstName = readline(prompt = &quot;Enter FirstName: &quot;)
+    SecondName = readline(prompt = &quot;Enter SecondName: &quot;)
+    IDNo = readline(prompt = &quot;Enter IDNo: &quot;)
+    id_acc = private$account_setup(IDNo)
+    account_details = tibble(
+        &quot;Full Name&quot; = paste(FirstName,SecondName),
+        &quot;IDNo&quot; = as.character(pluck(id_acc,&#39;IDNo&#39;)),
+        &#39;AccountNo&#39; = pluck(id_acc,&#39;accno&#39;),
+        &#39;AccountBalance&#39; = 0,
+        &#39;LoanBalance&#39; = 0
+      )
+    self$accs = bind_rows(self$accs,account_details) %&gt;% filter(!is.na(IDNo))
+    cat(sprintf(&quot;Hi %s, welcome to ABCBank.We look foward to doing business  with you!\nYour account number is %s&quot;,
+                FirstName,account_details$AccountNo))
+    self$get_services(acc = account_details$AccountNo)
+    # return(invisible(account_details))
+  },
+  make_deposit = function(acc=NULL,Amount=NULL){
+    acc = readline(prompt = &quot;Enter acc &quot;)
+    Amount = as.numeric(readline(prompt = &quot;Enter Amount &quot;))
+    private$check_acc(acc = acc,expr = {
+      self$accs = self$accs %&gt;% mutate(AccountBalance = ifelse(AccountNo == acc,AccountBalance+Amount,AccountBalance))
+      cat(glue(&quot;Dear Customer,your deposit of Ksh {Amount} was received successfully.Your current balance is Ksh {
+                   pull(filter(self$accs,AccountNo == acc),AccountBalance )}&quot;))})
+  },
+  make_withdrawal = function(acc=NULL,Amount=NULL){
+    acc = readline(prompt = &quot;Enter acc &quot;)
+    Amount =  as.numeric(readline(prompt = &quot;Enter Amount &quot;))
+    private$check_acc(acc = acc,expr = {
+      info = filter(self$accs,AccountNo == acc)
+      if ( (pull(info,AccountBalance) - 100) &gt; Amount ) {
+        self$accs &lt;- self$accs %&gt;% mutate(
+          AccountBalance = ifelse(AccountNo == acc,AccountBalance - Amount,AccountBalance)
+        )
+      }else{
+        message(paste(&#39; ----------\n Dear &#39;,pull(info,`Full Name`),&#39;,we are unable to process a your request due to low balance in your account.Please try a lower value&#39;))
+      }
+    })
+    
+  },
+  check_balance = function(acc=NULL){
+    acc = readline(prompt = &quot;Enter acc &quot;)
+    private$check_acc(acc = acc,expr = {
+     balance =  self$accs %&gt;% filter(AccountNo == acc) %&gt;% pull(AccountBalance)
+     message(glue(&quot;--------------\n Dear Customer,your account balance is Ksh {balance}.\n--------------&quot;))
+    })
+  },
+  # loans
+  request_loan = function(acc=NULL,Amount=NULL){
+    acc = readline(prompt = &quot;Enter acc &quot;)
+    Amount =  as.numeric(readline(prompt = &quot;Enter Amount &quot;))
+    private$check_acc(acc = acc,expr = {
+      info = filter(self$accs,AccountNo == acc)
+      if ( (pull(info,LoanBalance)) &lt;= 0 ) {
+        self$accs = self$accs %&gt;% mutate(LoanBalance = ifelse(AccountNo == acc,Amount,LoanBalance))
+        cat(glue(&quot;Dear Customer,your loan request of Ksh {Amount} was processed successfully.Your outstanding loan balance is Ksh {
+                   pull(filter(self$accs,AccountNo == acc),LoanBalance )}&quot;))
+      }else{
+        message(glue(&quot;Dear Customer,your loan request of Ksh {Amount} was not successfull.Please clear your outstanding loan balance of Ksh {
+                   pull(filter(self$accs,AccountNo == acc),LoanBalance )}.&quot;))
+      }
+    })
+  },
+  repay_loan = function(acc=NULL,Amount=NULL) {
+    acc = readline(prompt = &quot;Enter acc &quot;)
+    Amount =  as.numeric(readline(prompt = &quot;Enter Amount &quot;))
+    private$check_acc(acc = acc,expr = {
+      info = filter(self$accs,AccountNo == acc)
+      if ((pull(info,LoanBalance)) &gt; 0 ) {
+        self$accs = self$accs %&gt;% mutate(LoanBalance = ifelse(AccountNo == acc,LoanBalance-Amount,LoanBalance),
+                                         AccountBalance = ifelse((AccountNo == acc) &amp; (LoanBalance&lt;0),abs(LoanBalance)+AccountBalance,AccountBalance ),
+                                         LoanBalance = ifelse(LoanBalance &lt; 0 ,0,LoanBalance))
+        if ( (pull(info,LoanBalance)) &gt;= Amount ) {
+          
+          cat(glue(&quot;Dear Customer,your loan payment of Ksh {Amount} was processed successfully.Your outstanding loan balance is Ksh {
+                   pull(filter(self$accs,AccountNo == acc),LoanBalance )}&quot;))
+        }else{
+          cat(glue(&quot;Dear Customer,your loan payment of Ksh {Amount} was processed successfully.Your loan is cleared,extra amount of Ksh {abs((pull(info,LoanBalance)) - Amount)} was deposited in your transactional account&quot;))
+        }
+      }else{
+        message(&quot;Dear Customer,you do not have an existing loan.&quot;)
+      }
+    })
+  },
+  check_loan_balance = function(acc=NULL){
+    acc = readline(prompt = &quot;Enter acc &quot;)
+    private$check_acc(acc = acc,expr = {
+      balance =  self$accs %&gt;% filter(AccountNo == acc) %&gt;% pull(LoanBalance)
+      cat(glue(&quot;--------------\n Dear Customer,your loan account balance is Ksh {balance}.\n--------------&quot;))
+    })
+  },
+  # simulate USSD!
+  get_services = function(acc = NULL) {
+    if (is.null(acc)) {
+      cat(&#39;Welcome to ABC Banking Services!\nSelect\n1:Create new account\n2:Deposit\n3:Withdraw\n4:Request Loan\n5:Repay Loan\n6:My Account Balance\n7:My Loan Balance&#39;)
+      input &lt;- readline(prompt=&quot;Enter here: &quot;) 
+      switch (as.character(input),
+              &quot;1&quot; = self$create_account(),
+              &quot;2&quot; = self$make_deposit(),
+              &quot;3&quot; = self$make_withdrawal(),
+              &quot;4&quot; = self$request_loan(),
+              &quot;5&quot; = self$repay_loan(),
+              &quot;6&quot; = self$check_balance(),
+              &quot;7&quot; = self$check_loan_balance()
+      )
+    }else{
+      cat(paste(&#39;-----------\nSelect\n1:Deposit\n2:Withdraw\n3:Request Loan\n4:Repay Loan\n5:My Account Balance\n6:My Loan Balance\n&#39;))
+      input &lt;- readline(prompt=&quot;Enter here: \n--------------\n&quot;) 
+      switch (as.character(input),
+              &quot;1&quot; = self$make_deposit(),
+              &quot;2&quot; = self$make_withdrawal(),
+              &quot;3&quot; = self$request_loan(),
+              &quot;4&quot; = self$repay_loan(),
+              &quot;5&quot; = self$check_balance(),
+              &quot;6&quot; = self$check_loan_balance()
+      )
+    }
+   
+  }), 
+  private = list(
+     account_setup = function(IDNo) {
+    if (nrow(filter(self$accs,!is.na(IDNo)) &gt; 0 )) {
+      accno =  paste0(&quot;00&quot;,substr(paste0(sample(1:100, 12, replace=F),collapse = &quot;&quot;),1,9))
+      while (accno %in% self$accs$AccountNo) {
+        accno = as.character(rstudioapi::showPrompt(title = &quot;IDNo&quot;,message = &quot;Enter here&quot;))
+      }
+    }else{
+      accno =  paste0(&quot;00&quot;,substr(paste0(sample(1:100, 12, replace=F),collapse = &quot;&quot;),1,9))
+    }
+    # check if user exists
+    if (nrow(filter(self$accs,!is.na(IDNo)) &gt; 0 )) {
+      while (IDNo %in% self$accs$IDNo) {
+        IDNo = as.character(rstudioapi::showPrompt(title = &quot;IDNo&quot;,message = &quot;That ID already exists,Enter correct IDNo &quot;))
+      }
+    }else{
+      IDNo = IDNo
+    }
+    out = list(
+      &#39;IDNo&#39; = IDNo,
+      &#39;accno&#39; = accno
+    )
+    return(out)
+  },
+     check_acc = function(acc,expr={...}) {
+       if (acc %in% self$accs$AccountNo) {
+         expr
+       }else{
+         message(&quot;Account Supplied doesn&#39;t exist!&quot;)
+       }
+     }
+))</code></pre>
+<p>Lets instantiate</p>
+<pre class="r"><code>ABCBank &lt;- CBS$new(bank_name = &quot;ABC Bank&quot;)</code></pre>
+<pre><code>##  --------- 
+##  This is  ABC Bank . 
+##  ---------</code></pre>
+</div>
+<div id="introspection" class="section level2">
+<h2>Introspection</h2>
+<p>We can always inspect our classes using the <code>class</code> function and use <code>names</code> function to get a list of all methods contained in a class as shown below from an instanciation.</p>
+<pre class="r"><code>class(ABCBank)</code></pre>
+<pre><code>## [1] &quot;CBS&quot; &quot;R6&quot;</code></pre>
+<p>We can see it shows that our instance is from the CBS class and it inherits from R6 class.</p>
+<pre class="r"><code>names(ABCBank)</code></pre>
+<pre><code>##  [1] &quot;.__enclos_env__&quot;    &quot;bank_name&quot;          &quot;accs&quot;              
+##  [4] &quot;clone&quot;              &quot;get_services&quot;       &quot;check_loan_balance&quot;
+##  [7] &quot;repay_loan&quot;         &quot;request_loan&quot;       &quot;check_balance&quot;     
+## [10] &quot;make_withdrawal&quot;    &quot;make_deposit&quot;       &quot;create_account&quot;    
+## [13] &quot;initialize&quot;</code></pre>
+<p>All the methods discussed above are listed here.</p>
+<p>Lets see a simple example of our system.</p>
+<p>To use this system interactively,run the class above ,instanciate then call <code>get_services</code> method.</p>
+<pre class="r"><code>ABCBank$get_services()</code></pre>
+<pre><code>## Welcome to ABC Banking Services!
+## Select
+## 1:Create new account
+## 2:Deposit
+## 3:Withdraw
+## 4:Request Loan
+## 5:Repay Loan
+## 6:My Account Balance
+## 7:My Loan BalanceEnter here:</code></pre>
+</div>
+<div id="finallly-." class="section level2">
+<h2>Finallly .</h2>
+<p>Its important to note that when defining a method in a class you do not use <code>&lt;-</code> operator for assignment but the standard <code>=</code> sign.</p>
+<p>I will write about class inheritance and and other OOP concepts in R in my next blog.You are free to copy this script and play with it in your R studio console.</p>
+<p>All the best.</p>
+</div>

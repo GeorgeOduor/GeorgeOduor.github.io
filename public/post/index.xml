@@ -1,0 +1,1027 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on George</title>
+    <link>https://examplesite.org/post/</link>
+    <description>Recent content in Posts on George</description>
+    <generator>Source Themes academia (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <copyright>Copyright &amp;copy; {year}</copyright>
+    <lastBuildDate>Mon, 14 Jun 2021 21:13:14 -0500</lastBuildDate>
+    
+	    <atom:link href="https://examplesite.org/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hello R Markdown</title>
+      <link>https://examplesite.org/post/plotly/plotly/</link>
+      <pubDate>Mon, 14 Jun 2021 21:13:14 -0500</pubDate>
+      
+      <guid>https://examplesite.org/post/plotly/plotly/</guid>
+      <description>
+&lt;script src=&#34;https://examplesite.org/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;r-markdown2&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;R Markdown2&lt;/h1&gt;
+&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&#34;http://rmarkdown.rstudio.com&#34; class=&#34;uri&#34;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can emb sd ed an R code chunk like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(cars)
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+fit &amp;lt;- lm(dist ~ speed, data = cars)
+fit
+## 
+## Call:
+## lm(formula = dist ~ speed, data = cars)
+## 
+## Coefficients:
+## (Intercept)        speed  
+##     -17.579        3.932&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;including-plots&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Including Plots&lt;/h1&gt;
+&lt;p&gt;You can also embed plots. See Figure &lt;a href=&#34;#fig:pie&#34;&gt;1&lt;/a&gt; for example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c(&amp;#39;Sky&amp;#39;, &amp;#39;Sunny side of pyramid&amp;#39;, &amp;#39;Shady side of pyramid&amp;#39;),
+  col = c(&amp;#39;#0292D8&amp;#39;, &amp;#39;#F7EA39&amp;#39;, &amp;#39;#C4B632&amp;#39;),
+  init.angle = -50, border = NA
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;https://examplesite.org/post/plotly/plotly_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: A fancy pie chart.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hello R Markdown</title>
+      <link>https://examplesite.org/post/2020-12-01-r-rmarkdown/</link>
+      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      
+      <guid>https://examplesite.org/post/2020-12-01-r-rmarkdown/</guid>
+      <description>
+&lt;script src=&#34;https://examplesite.org/post/2020-12-01-r-rmarkdown/index.en_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;r-markdown&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;R Markdown&lt;/h1&gt;
+&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&#34;http://rmarkdown.rstudio.com&#34; class=&#34;uri&#34;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can embed an R code chunk like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(cars)
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+fit &amp;lt;- lm(dist ~ speed, data = cars)
+fit
+## 
+## Call:
+## lm(formula = dist ~ speed, data = cars)
+## 
+## Coefficients:
+## (Intercept)        speed  
+##     -17.579        3.932&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;including-plots&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Including Plots&lt;/h1&gt;
+&lt;p&gt;You can also embed plots. See Figure &lt;a href=&#34;#fig:pie&#34;&gt;1&lt;/a&gt; for example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c(&amp;#39;Sky&amp;#39;, &amp;#39;Sunny side of pyramid&amp;#39;, &amp;#39;Shady side of pyramid&amp;#39;),
+  col = c(&amp;#39;#0292D8&amp;#39;, &amp;#39;#F7EA39&amp;#39;, &amp;#39;#C4B632&amp;#39;),
+  init.angle = -50, border = NA
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;https://examplesite.org/post/2020-12-01-r-rmarkdown/index.en_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: A fancy pie chart.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Display Jupyter Notebooks with academia</title>
+      <link>https://examplesite.org/post/jupyter/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://examplesite.org/post/jupyter/</guid>
+      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; IPython.core.display &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Image
+Image(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;https://www.python.org/static/community_logos/python-logo-master-v3-TM-flattened.png&amp;#39;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;./academia_0_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Welcome to academia!&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre&gt;&lt;code&gt;Welcome to academia!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;install-python-and-jupyter&#34;&gt;Install Python and Jupyter&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.anaconda.com/distribution/#download-section&#34;&gt;Install Anaconda&lt;/a&gt; which includes Python 3 and Jupyter notebook.&lt;/p&gt;
+&lt;p&gt;Otherwise, for advanced users, install Jupyter notebook with &lt;code&gt;pip3 install jupyter&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;create-a-new-blog-post-as-usualhttpssourcethemescomacademicdocsmanaging-contentcreate-a-blog-post&#34;&gt;Create a new blog post &lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-a-blog-post&#34;&gt;as usual&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Run the following commands in your Terminal, substituting &lt;code&gt;&amp;lt;MY_WEBSITE_FOLDER&amp;gt;&lt;/code&gt; and &lt;code&gt;my-post&lt;/code&gt; with the file path to your academia website folder and a name for your blog post (without spaces), respectively:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cd &amp;lt;MY_WEBSITE_FOLDER&amp;gt;
+hugo new  --kind post post/my-post
+cd &amp;lt;MY_WEBSITE_FOLDER&amp;gt;/content/post/my-post/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;create-or-upload-a-jupyter-notebook&#34;&gt;Create or upload a Jupyter notebook&lt;/h2&gt;
+&lt;p&gt;Run the following command to start Jupyter within your new blog post folder. Then create a new Jupyter notebook (&lt;em&gt;New &amp;gt; Python Notebook&lt;/em&gt;) or upload a notebook.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;jupyter notebook
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;convert-notebook-to-markdown&#34;&gt;Convert notebook to Markdown&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;jupyter nbconvert Untitled.ipynb --to markdown --NbConvertApp.output_files_dir&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;.
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Copy the contents of Untitled.md and append it to index.md:&lt;/span&gt;
+cat Untitled.md | tee -a index.md
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Remove the temporary file:&lt;/span&gt;
+rm Untitled.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;edit-your-post-metadata&#34;&gt;Edit your post metadata&lt;/h2&gt;
+&lt;p&gt;Open &lt;code&gt;index.md&lt;/code&gt; in your text editor and edit the title etc. in the &lt;a href=&#34;https://sourcethemes.com/academic/docs/front-matter/&#34;&gt;front matter&lt;/a&gt; according to your preference.&lt;/p&gt;
+&lt;p&gt;To set a &lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#featured-image&#34;&gt;featured image&lt;/a&gt;, place an image named &lt;code&gt;featured&lt;/code&gt; into your post&amp;rsquo;s folder.&lt;/p&gt;
+&lt;p&gt;For other tips, such as using math, see the guide on &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34;&gt;writing content with academia&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A Study of Snail Behavior</title>
+      <link>https://examplesite.org/post/snail/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://examplesite.org/post/snail/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Create a free website with academia using Markdown, Jupyter, or RStudio. Choose a beautiful color theme and build anything with the Page Builder - over 40 &lt;em&gt;widgets&lt;/em&gt;, &lt;em&gt;themes&lt;/em&gt;, and &lt;em&gt;language packs&lt;/em&gt; included!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://academia-demo.netlify.com/&#34;&gt;Check out the latest &lt;strong&gt;demo&lt;/strong&gt;&lt;/a&gt; of what you&amp;rsquo;ll get in less than 10 minutes, or &lt;a href=&#34;https://sourcethemes.com/academic/#expo&#34;&gt;view the &lt;strong&gt;showcase&lt;/strong&gt;&lt;/a&gt; of personal, project, and business sites.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#install&#34;&gt;&lt;strong&gt;Setup academia&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/get-started/&#34;&gt;&lt;strong&gt;Get Started&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/&#34;&gt;View the documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://discuss.gohugo.io/&#34;&gt;Ask a question&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/gcushen/hugo-academia/issues&#34;&gt;Request a feature or report a bug&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Updating? View the &lt;a href=&#34;https://sourcethemes.com/academic/docs/update/&#34;&gt;Update Guide&lt;/a&gt; and &lt;a href=&#34;https://sourcethemes.com/academic/updates/&#34;&gt;Release Notes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Support development of academia:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://paypal.me/cushen&#34;&gt;Donate a coffee&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.patreon.com/cushen&#34;&gt;Become a backer on Patreon&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.redbubble.com/people/neutreno/works/34387919-academia&#34;&gt;Decorate your laptop or journal with an academia sticker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://academia.threadless.com/&#34;&gt;Wear the T-shirt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/gcushen/hugo-academia/&#34;&gt;&lt;img src=&#34;https://raw.githubusercontent.com/gcushen/hugo-academia/master/academia.png&#34; alt=&#34;Screenshot&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Key features:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Page builder&lt;/strong&gt; - Create &lt;em&gt;anything&lt;/em&gt; with &lt;a href=&#34;https://sourcethemes.com/academic/docs/page-builder/&#34;&gt;&lt;strong&gt;widgets&lt;/strong&gt;&lt;/a&gt; and &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34;&gt;&lt;strong&gt;elements&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Edit any type of content&lt;/strong&gt; - Blog posts, publications, talks, slides, projects, and more!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Create content&lt;/strong&gt; in &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34;&gt;&lt;strong&gt;Markdown&lt;/strong&gt;&lt;/a&gt;, &lt;a href=&#34;https://sourcethemes.com/academic/docs/jupyter/&#34;&gt;&lt;strong&gt;Jupyter&lt;/strong&gt;&lt;/a&gt;, or &lt;a href=&#34;https://sourcethemes.com/academic/docs/install/#install-with-rstudio&#34;&gt;&lt;strong&gt;RStudio&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Plugin System&lt;/strong&gt; - Fully customizable &lt;a href=&#34;https://sourcethemes.com/academic/themes/&#34;&gt;&lt;strong&gt;color&lt;/strong&gt; and &lt;strong&gt;font themes&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Display Code and Math&lt;/strong&gt; - Code highlighting and &lt;a href=&#34;https://en.wikibooks.org/wiki/LaTeX/Mathematics&#34;&gt;LaTeX math&lt;/a&gt; supported&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Integrations&lt;/strong&gt; - &lt;a href=&#34;https://analytics.google.com&#34;&gt;Google Analytics&lt;/a&gt;, &lt;a href=&#34;https://disqus.com&#34;&gt;Disqus commenting&lt;/a&gt;, Maps, Contact Forms, and more!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Beautiful Site&lt;/strong&gt; - Simple and refreshing one page design&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Industry-Leading SEO&lt;/strong&gt; - Help get your website found on search engines and social media&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Media Galleries&lt;/strong&gt; - Display your images and videos with captions in a customizable gallery&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mobile Friendly&lt;/strong&gt; - Look amazing on every screen with a mobile friendly version of your site&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Multi-language&lt;/strong&gt; - 15+ language packs including English, 中文, and Português&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Multi-user&lt;/strong&gt; - Each author gets their own profile page&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Privacy Pack&lt;/strong&gt; - Assists with GDPR&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stand Out&lt;/strong&gt; - Bring your site to life with animation, parallax backgrounds, and scroll effects&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;One-Click Deployment&lt;/strong&gt; - No servers. No databases. Only files.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;color-themes&#34;&gt;Color Themes&lt;/h2&gt;
+&lt;p&gt;academia comes with &lt;strong&gt;day (light) and night (dark) mode&lt;/strong&gt; built-in. Click the sun/moon icon in the top right of the &lt;a href=&#34;https://academia-demo.netlify.com/&#34;&gt;Demo&lt;/a&gt; to see it in action!&lt;/p&gt;
+&lt;p&gt;Choose a stunning color and font theme for your site. Themes are fully customizable and include:&lt;/p&gt;
+
+
+
+
+
+
+
+
+  
+  
+
+
+&lt;div class=&#34;gallery&#34;&gt;
+
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+      
+    
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://examplesite.org/post/snail/gallery/theme-1950s.png&#34; data-caption=&#34;1950s&#34;&gt;
+  &lt;img src=&#34;https://examplesite.org/post/snail/gallery/theme-1950s_huaf5482f8cea0c5a703a328640e3b7509_21614_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  
+    
+    
+    
+    
+    
+      
+        
+      
+    
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://examplesite.org/post/snail/gallery/theme-apogee.png&#34; data-caption=&#34;Apogee&#34;&gt;
+  &lt;img src=&#34;https://examplesite.org/post/snail/gallery/theme-apogee_hu4b45d99db97150df01464c393bfd17d4_24119_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  
+    
+    
+    
+    
+    
+      
+        
+      
+    
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://examplesite.org/post/snail/gallery/theme-coffee-playfair.png&#34; data-caption=&#34;Coffee theme with Playfair font&#34;&gt;
+  &lt;img src=&#34;https://examplesite.org/post/snail/gallery/theme-coffee-playfair_hu446a8f670cc5622adcc77b97ba95f6c5_22462_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  
+    
+    
+    
+    
+    
+      
+        
+      
+    
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://examplesite.org/post/snail/gallery/theme-dark.png&#34; data-caption=&#34;Dark&#34;&gt;
+  &lt;img src=&#34;https://examplesite.org/post/snail/gallery/theme-dark_hu1e8601ecc47f58eada7743fdcd709d3d_21456_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  
+    
+    
+    
+    
+    
+      
+        
+      
+    
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://examplesite.org/post/snail/gallery/theme-default.png&#34; data-caption=&#34;Default&#34;&gt;
+  &lt;img src=&#34;https://examplesite.org/post/snail/gallery/theme-default_huba6228b7bdf30e2f03f12ea91b2cba0d_21751_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  
+    
+    
+    
+    
+    
+      
+        
+      
+    
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://examplesite.org/post/snail/gallery/theme-forest.png&#34; data-caption=&#34;Forest&#34;&gt;
+  &lt;img src=&#34;https://examplesite.org/post/snail/gallery/theme-forest_hu4f093a1c683134431456584193ea41ee_21797_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  
+    
+    
+    
+    
+    
+      
+        
+      
+    
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://examplesite.org/post/snail/gallery/theme-ocean.png&#34; data-caption=&#34;Ocean&#34;&gt;
+  &lt;img src=&#34;https://examplesite.org/post/snail/gallery/theme-ocean_hu14831ccafc2219f30a7a096fa7617e01_21760_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  
+    
+    
+    
+    
+    
+      
+        
+      
+    
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://examplesite.org/post/snail/gallery/theme-strawberry.png&#34; data-caption=&#34;Strawberry&#34;&gt;
+  &lt;img src=&#34;https://examplesite.org/post/snail/gallery/theme-strawberry_hu36b0b347fcca08bd39e2df22dcedbdfb_39532_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  
+
+  
+&lt;/div&gt;
+&lt;h2 id=&#34;ecosystem&#34;&gt;Ecosystem&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/sourcethemes/academia-admin&#34;&gt;academia Admin&lt;/a&gt;:&lt;/strong&gt; An admin tool to import publications from BibTeX or import assets for an offline site&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/sourcethemes/academia-scripts&#34;&gt;academia Scripts&lt;/a&gt;:&lt;/strong&gt; Scripts to help migrate content to new versions of academia&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;install&#34;&gt;Install&lt;/h2&gt;
+&lt;p&gt;You can choose from one of the following four methods to install:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/install/#install-with-web-browser&#34;&gt;&lt;strong&gt;one-click install using your web browser (recommended)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/install/#install-with-git&#34;&gt;install on your computer using &lt;strong&gt;Git&lt;/strong&gt; with the Command Prompt/Terminal app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/install/#install-with-zip&#34;&gt;install on your computer by downloading the &lt;strong&gt;ZIP files&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/install/#install-with-rstudio&#34;&gt;install on your computer with &lt;strong&gt;RStudio&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Then &lt;a href=&#34;https://sourcethemes.com/academic/docs/get-started/&#34;&gt;personalize and deploy your new site&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;updating&#34;&gt;Updating&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/update/&#34;&gt;View the Update Guide&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Feel free to &lt;em&gt;star&lt;/em&gt; the project on &lt;a href=&#34;https://github.com/gcushen/hugo-academia/&#34;&gt;Github&lt;/a&gt; to help keep track of &lt;a href=&#34;https://sourcethemes.com/academic/updates&#34;&gt;updates&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;license&#34;&gt;License&lt;/h2&gt;
+&lt;p&gt;Copyright 2016-present &lt;a href=&#34;https://georgecushen.com&#34;&gt;George Cushen&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Released under the &lt;a href=&#34;https://github.com/gcushen/hugo-academia/blob/master/LICENSE.md&#34;&gt;MIT&lt;/a&gt; license.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>academia: the website builder for Hugo</title>
+      <link>https://examplesite.org/post/getting-started/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://examplesite.org/post/getting-started/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Create a free website with academia using Markdown, Jupyter, or RStudio. Choose a beautiful color theme and build anything with the Page Builder - over 40 &lt;em&gt;widgets&lt;/em&gt;, &lt;em&gt;themes&lt;/em&gt;, and &lt;em&gt;language packs&lt;/em&gt; included!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://academia-demo.netlify.com/&#34;&gt;Check out the latest &lt;strong&gt;demo&lt;/strong&gt;&lt;/a&gt; of what you&amp;rsquo;ll get in less than 10 minutes, or &lt;a href=&#34;https://sourcethemes.com/academic/#expo&#34;&gt;view the &lt;strong&gt;showcase&lt;/strong&gt;&lt;/a&gt; of personal, project, and business sites.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#install&#34;&gt;&lt;strong&gt;Setup academia&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/get-started/&#34;&gt;&lt;strong&gt;Get Started&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/&#34;&gt;View the documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://discuss.gohugo.io/&#34;&gt;Ask a question&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/gcushen/hugo-academia/issues&#34;&gt;Request a feature or report a bug&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Updating? View the &lt;a href=&#34;https://sourcethemes.com/academic/docs/update/&#34;&gt;Update Guide&lt;/a&gt; and &lt;a href=&#34;https://sourcethemes.com/academic/updates/&#34;&gt;Release Notes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Support development of academia:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://paypal.me/cushen&#34;&gt;Donate a coffee&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.patreon.com/cushen&#34;&gt;Become a backer on Patreon&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.redbubble.com/people/neutreno/works/34387919-academia&#34;&gt;Decorate your laptop or journal with an academia sticker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://academia.threadless.com/&#34;&gt;Wear the T-shirt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/gcushen/hugo-academia/&#34;&gt;&lt;img src=&#34;https://raw.githubusercontent.com/gcushen/hugo-academia/master/academia.png&#34; alt=&#34;Screenshot&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Key features:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Page builder&lt;/strong&gt; - Create &lt;em&gt;anything&lt;/em&gt; with &lt;a href=&#34;https://sourcethemes.com/academic/docs/page-builder/&#34;&gt;&lt;strong&gt;widgets&lt;/strong&gt;&lt;/a&gt; and &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34;&gt;&lt;strong&gt;elements&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Edit any type of content&lt;/strong&gt; - Blog posts, publications, talks, slides, projects, and more!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Create content&lt;/strong&gt; in &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34;&gt;&lt;strong&gt;Markdown&lt;/strong&gt;&lt;/a&gt;, &lt;a href=&#34;https://sourcethemes.com/academic/docs/jupyter/&#34;&gt;&lt;strong&gt;Jupyter&lt;/strong&gt;&lt;/a&gt;, or &lt;a href=&#34;https://sourcethemes.com/academic/docs/install/#install-with-rstudio&#34;&gt;&lt;strong&gt;RStudio&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Plugin System&lt;/strong&gt; - Fully customizable &lt;a href=&#34;https://sourcethemes.com/academic/themes/&#34;&gt;&lt;strong&gt;color&lt;/strong&gt; and &lt;strong&gt;font themes&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Display Code and Math&lt;/strong&gt; - Code highlighting and &lt;a href=&#34;https://en.wikibooks.org/wiki/LaTeX/Mathematics&#34;&gt;LaTeX math&lt;/a&gt; supported&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Integrations&lt;/strong&gt; - &lt;a href=&#34;https://analytics.google.com&#34;&gt;Google Analytics&lt;/a&gt;, &lt;a href=&#34;https://disqus.com&#34;&gt;Disqus commenting&lt;/a&gt;, Maps, Contact Forms, and more!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Beautiful Site&lt;/strong&gt; - Simple and refreshing one page design&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Industry-Leading SEO&lt;/strong&gt; - Help get your website found on search engines and social media&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Media Galleries&lt;/strong&gt; - Display your images and videos with captions in a customizable gallery&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mobile Friendly&lt;/strong&gt; - Look amazing on every screen with a mobile friendly version of your site&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Multi-language&lt;/strong&gt; - 15+ language packs including English, 中文, and Português&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Multi-user&lt;/strong&gt; - Each author gets their own profile page&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Privacy Pack&lt;/strong&gt; - Assists with GDPR&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stand Out&lt;/strong&gt; - Bring your site to life with animation, parallax backgrounds, and scroll effects&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;One-Click Deployment&lt;/strong&gt; - No servers. No databases. Only files.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;color-themes&#34;&gt;Color Themes&lt;/h2&gt;
+&lt;p&gt;academia comes with &lt;strong&gt;day (light) and night (dark) mode&lt;/strong&gt; built-in. Click the sun/moon icon in the top right of the &lt;a href=&#34;https://academia-demo.netlify.com/&#34;&gt;Demo&lt;/a&gt; to see it in action!&lt;/p&gt;
+&lt;p&gt;Choose a stunning color and font theme for your site. Themes are fully customizable and include:&lt;/p&gt;
+
+
+
+
+
+
+
+
+  
+  
+
+
+&lt;div class=&#34;gallery&#34;&gt;
+
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+        
+      
+    
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://examplesite.org/post/getting-started/gallery/theme-1950s.png&#34; data-caption=&#34;1950s&#34;&gt;
+  &lt;img src=&#34;https://examplesite.org/post/getting-started/gallery/theme-1950s_huaf5482f8cea0c5a703a328640e3b7509_21614_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  
+    
+    
+    
+    
+    
+      
+        
+      
+    
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://examplesite.org/post/getting-started/gallery/theme-apogee.png&#34; data-caption=&#34;Apogee&#34;&gt;
+  &lt;img src=&#34;https://examplesite.org/post/getting-started/gallery/theme-apogee_hu4b45d99db97150df01464c393bfd17d4_24119_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  
+    
+    
+    
+    
+    
+      
+        
+      
+    
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://examplesite.org/post/getting-started/gallery/theme-coffee-playfair.png&#34; data-caption=&#34;Coffee theme with Playfair font&#34;&gt;
+  &lt;img src=&#34;https://examplesite.org/post/getting-started/gallery/theme-coffee-playfair_hu446a8f670cc5622adcc77b97ba95f6c5_22462_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  
+    
+    
+    
+    
+    
+      
+        
+      
+    
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://examplesite.org/post/getting-started/gallery/theme-dark.png&#34; data-caption=&#34;Dark&#34;&gt;
+  &lt;img src=&#34;https://examplesite.org/post/getting-started/gallery/theme-dark_hu1e8601ecc47f58eada7743fdcd709d3d_21456_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  
+    
+    
+    
+    
+    
+      
+        
+      
+    
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://examplesite.org/post/getting-started/gallery/theme-default.png&#34; data-caption=&#34;Default&#34;&gt;
+  &lt;img src=&#34;https://examplesite.org/post/getting-started/gallery/theme-default_huba6228b7bdf30e2f03f12ea91b2cba0d_21751_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  
+    
+    
+    
+    
+    
+      
+        
+      
+    
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://examplesite.org/post/getting-started/gallery/theme-forest.png&#34; data-caption=&#34;Forest&#34;&gt;
+  &lt;img src=&#34;https://examplesite.org/post/getting-started/gallery/theme-forest_hu4f093a1c683134431456584193ea41ee_21797_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  
+    
+    
+    
+    
+    
+      
+        
+      
+    
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://examplesite.org/post/getting-started/gallery/theme-ocean.png&#34; data-caption=&#34;Ocean&#34;&gt;
+  &lt;img src=&#34;https://examplesite.org/post/getting-started/gallery/theme-ocean_hu14831ccafc2219f30a7a096fa7617e01_21760_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  
+    
+    
+    
+    
+    
+      
+        
+      
+    
+  &lt;a data-fancybox=&#34;gallery-gallery&#34; href=&#34;https://examplesite.org/post/getting-started/gallery/theme-strawberry.png&#34; data-caption=&#34;Strawberry&#34;&gt;
+  &lt;img src=&#34;https://examplesite.org/post/getting-started/gallery/theme-strawberry_hu36b0b347fcca08bd39e2df22dcedbdfb_39532_0x190_resize_lanczos_2.png&#34; alt=&#34;&#34;&gt;
+  &lt;/a&gt;
+  
+
+  
+&lt;/div&gt;
+&lt;h2 id=&#34;ecosystem&#34;&gt;Ecosystem&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/sourcethemes/academia-admin&#34;&gt;academia Admin&lt;/a&gt;:&lt;/strong&gt; An admin tool to import publications from BibTeX or import assets for an offline site&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/sourcethemes/academia-scripts&#34;&gt;academia Scripts&lt;/a&gt;:&lt;/strong&gt; Scripts to help migrate content to new versions of academia&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;install&#34;&gt;Install&lt;/h2&gt;
+&lt;p&gt;You can choose from one of the following four methods to install:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/install/#install-with-web-browser&#34;&gt;&lt;strong&gt;one-click install using your web browser (recommended)&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/install/#install-with-git&#34;&gt;install on your computer using &lt;strong&gt;Git&lt;/strong&gt; with the Command Prompt/Terminal app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/install/#install-with-zip&#34;&gt;install on your computer by downloading the &lt;strong&gt;ZIP files&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/install/#install-with-rstudio&#34;&gt;install on your computer with &lt;strong&gt;RStudio&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Then &lt;a href=&#34;https://sourcethemes.com/academic/docs/get-started/&#34;&gt;personalize and deploy your new site&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;updating&#34;&gt;Updating&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/update/&#34;&gt;View the Update Guide&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Feel free to &lt;em&gt;star&lt;/em&gt; the project on &lt;a href=&#34;https://github.com/gcushen/hugo-academia/&#34;&gt;Github&lt;/a&gt; to help keep track of &lt;a href=&#34;https://sourcethemes.com/academic/updates&#34;&gt;updates&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;license&#34;&gt;License&lt;/h2&gt;
+&lt;p&gt;Copyright 2016-present &lt;a href=&#34;https://georgecushen.com&#34;&gt;George Cushen&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Released under the &lt;a href=&#34;https://github.com/gcushen/hugo-academia/blob/master/LICENSE.md&#34;&gt;MIT&lt;/a&gt; license.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OOP in R,Simulating a banking system.</title>
+      <link>https://examplesite.org/post/oop-r/oop_r/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://examplesite.org/post/oop-r/oop_r/</guid>
+      <description>
+&lt;script src=&#34;https://examplesite.org/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Object Oriented Programming has been the best way to write programs in any language.But why OOP technique?As a matter of fact our physical world is made up of objects with different qualities.OOP is based on the concept of “object” which can contain data or code.&lt;/p&gt;
+&lt;p&gt;A good example can be a an animal object with several properties like movement,sound,diet,life span etc.We can also talk about a “bank object” , which I will be considering in this post, with properties like customers,accounts and methods like accounts creation,loan repayments etc.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;why-oop-in-r.&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Why OOP in R.&lt;/h2&gt;
+&lt;p&gt;Well,personally I begun my R journey with simple procedural oriented programming then I graduates to functional programming.Its only after being exposed to the goodies that come with structuring my scripts in an Object Oriented Way using python.R offers more than one method of writing Object Oriented programs such as S3,S4,R6 etc.In this post i will focus on using R6 Classes offered by the &lt;a href=&#34;https://r6.r-lib.org/articles/Introduction.html&#34;&gt;R6 package&lt;/a&gt;.This is because it gives an almost similar method Python uses.If you are not good with python,you have nothing to worry,all you need to know is how to write an R function and simple operations.&lt;/p&gt;
+&lt;p&gt;Much about OOP can be found &lt;a href=&#34;https://en.wikipedia.org/wiki/Object-oriented_programming&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Some key concepts we are going to learn here are:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Classes Definition&lt;/li&gt;
+&lt;li&gt;Class instances&lt;/li&gt;
+&lt;li&gt;Methods:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Public&lt;/li&gt;
+&lt;li&gt;Private&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Introspection&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div id=&#34;hypothetical-example.&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Hypothetical example.&lt;/h3&gt;
+&lt;p&gt;In this post,I will go through a simple banking system that enables its us to:
+1. Create accounts&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Make deposits&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Make withdrawals&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Request and pay loans.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Simulate a simple USSD request in the console.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Excited?Lets proceed.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;required-packages.&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Required packages.&lt;/h3&gt;
+&lt;p&gt;We will only need two packages for this project,namely ,&lt;a href=&#34;https://www.tidyverse.org/&#34;&gt;tidyverse&lt;/a&gt; and &lt;a href=&#34;https://r6.r-lib.org/articles/Introduction.html&#34;&gt;R6&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Install these packages if you don have them already in your current R installation.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#install.packages(&amp;quot;R6&amp;quot;)
+#install.packages(&amp;quot;tidyverse&amp;quot;)
+# load the packages here
+suppressWarnings(suppressPackageStartupMessages(library(R6)))
+suppressWarnings(suppressPackageStartupMessages(library(tidyverse)))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;defining-classes&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Defining Classes&lt;/h2&gt;
+&lt;p&gt;The focal point of OOP is a &lt;strong&gt;class&lt;/strong&gt; which are used to create &lt;strong&gt;objects.&lt;/strong&gt; A class is is the blueprint of an object.It literally describes describes what an object will be but separate from the object itself.The same class can be used to for creating multiple objects.&lt;/p&gt;
+&lt;p&gt;R6 Classes are created using the key word &lt;code&gt;R6Class&lt;/code&gt;.It contains functions called &lt;strong&gt;methods&lt;/strong&gt;.The methods specify the behavior and actions that an object created with the same class can perform using its specif data.&lt;/p&gt;
+&lt;p&gt;Its important to take note of two most important arguments of the class:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;classname&lt;/code&gt; : Defines the class name.Not required for the class to work though,but as described in the package documentation,its useful for S3 method dispatch.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;public&lt;/code&gt; : A list of public members, which can be functions (methods) and non-functions (fields).&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Below is a simple way to create a class in R6.First ,lets call our class &lt;em&gt;CBS&lt;/em&gt;-short for core banking system.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;CBS &amp;lt;- R6Class(classname = &amp;quot;CBS&amp;quot;,public = list(
+  accs = tibble(&amp;quot;Full Name&amp;quot; = NA,&amp;quot;IDNo&amp;quot; = NA,&amp;#39;AccountNo&amp;#39; = NA,&amp;#39;AccountBalance&amp;#39; = NA,&amp;#39;LoanBalance&amp;#39; = NA),
+  bank_name = NA,
+  initialize = function(accs = NULL,bank_name) {
+    self$bank_name = bank_name
+    cat(paste(&amp;#39; --------- \n This is &amp;#39;,self$bank_name,&amp;#39;. \n --------- \n&amp;#39;))
+  }
+))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In the above class i have defined a class &lt;code&gt;CBS&lt;/code&gt; with a method &lt;code&gt;initialize()&lt;/code&gt;.For someone coming from python,you can think of this as the &lt;code&gt;__init__&lt;/code&gt; method.It is called when an instance of the object class is created using the class name as function.In this method the &lt;code&gt;self$attribute&lt;/code&gt; can be used to set the initial value of an instance’s attributes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;class-instantiation.&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Class instantiation.&lt;/h2&gt;
+&lt;p&gt;Instances are objects built from classes which contains real data and objects.To instantiate an object of the class above we use, &lt;code&gt;$new()&lt;/code&gt; method as shown below.Lets call our bank &lt;strong&gt;ABCBank&lt;/strong&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ABCBank &amp;lt;- CBS$new(bank_name = &amp;#39;ABCBank&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  --------- 
+##  This is  ABCBank . 
+##  ---------&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;methods-and-class-atributes.&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Methods and class atributes.&lt;/h2&gt;
+&lt;p&gt;Classes have other methods defined to add functionality to them.These methods are basically functions.&lt;/p&gt;
+&lt;p&gt;Class attributes on the other hand are created by assigning variables within the body of the class,eg ‘bank_name’ and ‘accs’ in the above example.They are accessible within the class.To access these attributes you will use the self$attribute parameter as explained above.&lt;/p&gt;
+&lt;p&gt;To build our core banking system ,we will need some methods to offer functionality.At this point you will need the knowledge of R functions.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tldr&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;&lt;strong&gt;Tl;dr&lt;/strong&gt;&lt;/h2&gt;
+&lt;div id=&#34;account-creation-method.&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Account Creation method.&lt;/h3&gt;
+&lt;p&gt;A client will need his/her First Name,Second Name and National ID Number for this.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;create_account = function(FirstName=NULL,SecondName=NULL,IDNo=NULL) {
+    FirstName = readline(prompt = &amp;quot;Enter FirstName: &amp;quot;)
+    SecondName = readline(prompt = &amp;quot;Enter SecondName: &amp;quot;)
+    IDNo = readline(prompt = &amp;quot;Enter IDNo: &amp;quot;)
+    id_acc = private$account_setup(IDNo)
+    account_details = tibble(&amp;quot;Full Name&amp;quot; = paste(FirstName,SecondName),&amp;quot;IDNo&amp;quot; = as.character(pluck(id_acc,&amp;#39;IDNo&amp;#39;)),
+                             &amp;#39;AccountNo&amp;#39; = pluck(id_acc,&amp;#39;accno&amp;#39;),&amp;#39;AccountBalance&amp;#39; = 0,&amp;#39;LoanBalance&amp;#39; = 0)
+    self$accs = bind_rows(self$accs,account_details) %&amp;gt;% filter(!is.na(IDNo))
+    cat(sprintf(&amp;quot;Hi %s, welcome to ABCBank.We look foward to doing business  with you!\nYour account number is %s&amp;quot;,FirstName,account_details$AccountNo))
+  }&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The above function simply creates a tibble data frame of the newly created account and adds it to the existing accounts.Other properties like &lt;code&gt;private$&lt;/code&gt; included will be explained bellow.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;deposit-method&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Deposit Method&lt;/h3&gt;
+&lt;p&gt;In order for our clients to make deposits,we will require their loan accounts and amount to be deposited as shown in the function below.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;make_deposit = function(acc=NULL,Amount=NULL){
+    acc = readline(prompt = &amp;quot;Enter acc &amp;quot;)
+    Amount = as.numeric(readline(prompt = &amp;quot;Enter Amount &amp;quot;))
+    private$check_acc(acc = acc,expr = {
+      self$accs = self$accs %&amp;gt;% mutate(AccountBalance = ifelse(AccountNo == acc,AccountBalance+Amount,AccountBalance))
+      cat(glue(&amp;quot;Dear Customer,your deposit of Ksh {Amount} was received successfully.Your current balance is Ksh {
+                   pull(filter(self$accs,AccountNo == acc),AccountBalance )}&amp;quot;))})
+  }&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can notice that a message is sent to the client after making the deposit.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;withdrawal-method&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Withdrawal method&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;make_withdrawal = function(acc=NULL,Amount=NULL){
+    acc = readline(prompt = &amp;quot;Enter acc &amp;quot;)
+    Amount =  as.numeric(readline(prompt = &amp;quot;Enter Amount &amp;quot;))
+    private$check_acc(acc = acc,expr = {
+      info = filter(self$accs,AccountNo == acc)
+      if ( (pull(info,AccountBalance) - 100) &amp;gt; Amount ) {
+        self$accs &amp;lt;- self$accs %&amp;gt;% mutate(
+          AccountBalance = ifelse(AccountNo == acc,AccountBalance - Amount,AccountBalance)
+        )
+      }else{
+        message(paste(&amp;#39; ----------\n Dear &amp;#39;,pull(info,`Full Name`),&amp;#39;,we are unable to process a your request due to low balance in your account.Please try a lower value&amp;#39;))
+      }
+    })
+    
+  }&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Quick overview of whats going on here:
+In order for a withdrawal to be successful ,correct account is supplied plus an amount which wont leave the account with less than Ksh 100.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;account-balance&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Account Balance&lt;/h3&gt;
+&lt;p&gt;To check account balance we need just the account number then following is just simple filter method from all the accounts.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;check_balance = function(acc=NULL){
+    acc = readline(prompt = &amp;quot;Enter acc &amp;quot;)
+    private$check_acc(acc = acc,expr = {
+     balance =  self$accs %&amp;gt;% filter(AccountNo == acc) %&amp;gt;% pull(AccountBalance)
+     message(glue(&amp;quot;--------------\n Dear Customer,your account balance is Ksh {balance}.\n--------------&amp;quot;))
+    })
+  }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;loan-request-method&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Loan Request Method&lt;/h3&gt;
+&lt;p&gt;All this method does is simply to check if supplied account number is accurate,check if the client has existing loan to avoid multiple loan disbursements.&lt;/p&gt;
+&lt;p&gt;Notice that to access client database you need the &lt;code&gt;self$accs&lt;/code&gt; which has the list of all clients.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;request_loan = function(acc=NULL,Amount=NULL){
+    acc = readline(prompt = &amp;quot;Enter acc &amp;quot;)
+    Amount =  as.numeric(readline(prompt = &amp;quot;Enter Amount &amp;quot;))
+    private$check_acc(acc = acc,expr = {
+      info = filter(self$accs,AccountNo == acc)
+      if ( (pull(info,LoanBalance)) &amp;lt;= 0 ) {
+        self$accs = self$accs %&amp;gt;% mutate(LoanBalance = ifelse(AccountNo == acc,Amount,LoanBalance))
+        cat(glue(&amp;quot;Dear Customer,your loan request of Ksh {Amount} was processed successfully.
+                 Your outstanding loan balance is Ksh {pull(filter(self$accs,AccountNo == acc),LoanBalance )}&amp;quot;))
+      }else{
+        message(glue(&amp;quot;Dear Customer,your loan request of Ksh {Amount} was not successfull.
+                     Please clear your outstanding loan balance of Ksh {pull(filter(self$accs,AccountNo == acc),LoanBalance )}.&amp;quot;))
+      }
+    })
+  }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;loan-repayment&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Loan Repayment&lt;/h2&gt;
+&lt;p&gt;Same as the above,we only need the account number and amount to be repaid.If the amount is more than the balance,the extra amount is added to the transnational account balance.&lt;/p&gt;
+&lt;p&gt;If the clients tries to repay a loan which inst existing ,the program shuts and the transaction is canceled.&lt;/p&gt;
+&lt;p&gt;Nice ,right?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt; repay_loan = function(acc=NULL,Amount=NULL) {
+    acc = readline(prompt = &amp;quot;Enter acc &amp;quot;)
+    Amount =  as.numeric(readline(prompt = &amp;quot;Enter Amount &amp;quot;))
+    private$check_acc(acc = acc,expr = {
+      info = filter(self$accs,AccountNo == acc)
+      if ((pull(info,LoanBalance)) &amp;gt; 0 ) {
+        self$accs = self$accs %&amp;gt;% mutate(LoanBalance = ifelse(AccountNo == acc,LoanBalance-Amount,LoanBalance),
+                                         AccountBalance = ifelse((AccountNo == acc) &amp;amp; (LoanBalance&amp;lt;0),abs(LoanBalance)+AccountBalance,AccountBalance ),
+                                         LoanBalance = ifelse(LoanBalance &amp;lt; 0 ,0,LoanBalance))
+        if ( (pull(info,LoanBalance)) &amp;gt;= Amount ) {
+          
+          cat(glue(&amp;quot;Dear Customer,your loan payment of Ksh {Amount} was processed successfully.Your outstanding loan balance is Ksh {
+                   pull(filter(self$accs,AccountNo == acc),LoanBalance )}&amp;quot;))
+        }else{
+          cat(glue(&amp;quot;Dear Customer,your loan payment of Ksh {Amount} was processed successfully.Your loan is cleared,extra amount of Ksh {abs((pull(info,LoanBalance)) - Amount)} was deposited in your transactional account&amp;quot;))
+        }
+      }else{
+        message(&amp;quot;Dear Customer,you do not have an existing loan.&amp;quot;)
+      }
+    })
+  }&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;checking-loan-balance&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Checking Loan Balance&lt;/h3&gt;
+&lt;p&gt;Works same as Account balance check.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;check_loan_balance = function(acc=NULL){
+    acc = readline(prompt = &amp;quot;Enter acc &amp;quot;)
+    private$check_acc(acc = acc,expr = {
+      balance =  self$accs %&amp;gt;% filter(AccountNo == acc) %&amp;gt;% pull(LoanBalance)
+      cat(glue(&amp;quot;--------------\n Dear Customer,your loan account balance is Ksh {balance}.\n--------------&amp;quot;))
+    })
+  }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;simulating-ussd-in-the-console-method&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Simulating USSD in the console method&lt;/h3&gt;
+&lt;p&gt;You would like the access all these methods with a single call of this class.We will access all the methods in the class using the &lt;code&gt;self$method&lt;/code&gt; parameter.&lt;/p&gt;
+&lt;p&gt;For efficiency purposes a new client who has just registered is taken to the menu straight away.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;get_services = function(acc = NULL) {
+    if (is.null(acc)) {
+      cat(&amp;#39;Welcome to ABC Banking Services!\nSelect\n1:Create new account\n2:Deposit\n3:Withdraw\n4:Request Loan\n5:Repay Loan\n6:My Account Balance\n7:My Loan Balance&amp;#39;)
+      input &amp;lt;- readline(prompt=&amp;quot;Enter here: &amp;quot;) 
+      switch (as.character(input),
+              &amp;quot;1&amp;quot; = self$create_account(),&amp;quot;2&amp;quot; = self$make_deposit(),&amp;quot;3&amp;quot; = self$make_withdrawal(),
+              &amp;quot;4&amp;quot; = self$request_loan(),&amp;quot;5&amp;quot; = self$repay_loan(),&amp;quot;6&amp;quot; = self$check_balance(),&amp;quot;7&amp;quot; = self$check_loan_balance()
+      )
+    }else{
+      cat(paste(&amp;#39;-----------\nSelect\n1:Deposit\n2:Withdraw\n3:Request Loan\n4:Repay Loan\n5:My Account Balance\n6:My Loan Balance&amp;#39;))
+      input &amp;lt;- readline(prompt=&amp;quot;Enter here: &amp;quot;) 
+      switch (as.character(input),
+              &amp;quot;1&amp;quot; = self$make_deposit(),&amp;quot;2&amp;quot; = self$make_withdrawal(),&amp;quot;3&amp;quot; = self$request_loan(),&amp;quot;4&amp;quot; = self$repay_loan(),
+              &amp;quot;5&amp;quot; = self$check_balance(),&amp;quot;6&amp;quot; = self$check_loan_balance()
+      )
+    }
+   
+  }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;controlling-access-to-methods.&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Controlling access to methods.&lt;/h2&gt;
+&lt;p&gt;R6 classes has two main ways of controlling access.These are part of the class arguments but are not&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;code&gt;private&lt;/code&gt; : An optional list of private members, which can be functions and non-functions.To access these methods,we use the &lt;code&gt;private$method&lt;/code&gt; or &lt;code&gt;private$attribute&lt;/code&gt; parameters.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In our models ,we can see that we called &lt;code&gt;private$check_acc&lt;/code&gt; and &lt;code&gt;private$account_setup&lt;/code&gt; methods.Lets explain what they do down here.&lt;/p&gt;
+&lt;div id=&#34;private-methods-account_setup&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Private Methods : account_setup&lt;/h3&gt;
+&lt;p&gt;This function generates new account numbers and checks if it is similar to any account previously generated.If this is true it generates again until a unique one is made.This ensures that the generated account number is unique.The function also check if a client tries to register twice with the same National ID Number.If so,the client is prompted to enter a new one.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;account_setup = function(IDNo) {
+    if (nrow(filter(self$accs,!is.na(IDNo)) &amp;gt; 0 )) {
+      accno =  paste0(&amp;quot;00&amp;quot;,substr(paste0(sample(1:100, 12, replace=F),collapse = &amp;quot;&amp;quot;),1,9))
+      while (accno %in% self$accs$AccountNo) {
+        accno = as.character(rstudioapi::showPrompt(title = &amp;quot;IDNo&amp;quot;,message = &amp;quot;Enter here&amp;quot;))
+      }
+    }else{
+      accno =  paste0(&amp;quot;00&amp;quot;,substr(paste0(sample(1:100, 12, replace=F),collapse = &amp;quot;&amp;quot;),1,9))
+    }
+    # check if user exists
+    if (nrow(filter(self$accs,!is.na(IDNo)) &amp;gt; 0 )) {
+      while (IDNo %in% self$accs$IDNo) {
+        IDNo = as.character(rstudioapi::showPrompt(title = &amp;quot;IDNo&amp;quot;,message = &amp;quot;That ID already exists,Enter correct IDNo &amp;quot;))
+      }
+    }else{
+      IDNo = IDNo
+    }
+    out = list(
+      &amp;#39;IDNo&amp;#39; = IDNo,
+      &amp;#39;accno&amp;#39; = accno
+    )
+    return(out)
+  }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;private-methods-check_acc&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Private Methods : check_acc&lt;/h3&gt;
+&lt;p&gt;For any transaction,we will need an account number.It is therefore important to check the validity of the account entered using one single function defined in the private method as shown.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt; check_acc = function(acc,expr={...}) {
+       if (acc %in% self$accs$AccountNo) {
+         expr
+       }else{
+         message(&amp;quot;Account Supplied doesn&amp;#39;t exist!&amp;quot;)
+       }
+     }&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;final-program&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Final Program&lt;/h2&gt;
+&lt;p&gt;All the way up to this point,below is the all the methods and attribute combined in the class.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;CBS &amp;lt;- R6Class(classname = &amp;quot;CBS&amp;quot;,public = list(
+  accs = tibble(&amp;quot;Full Name&amp;quot; = NA,&amp;quot;IDNo&amp;quot; = NA,&amp;#39;AccountNo&amp;#39; = NA,&amp;#39;AccountBalance&amp;#39; = NA,&amp;#39;LoanBalance&amp;#39; = NA),
+  bank_name = NA,
+  initialize = function(accs = NULL,bank_name) {
+    self$bank_name = bank_name
+    cat(paste(&amp;#39; --------- \n This is &amp;#39;,self$bank_name,&amp;#39;. \n --------- \n&amp;#39;))
+  },
+  create_account = function(FirstName=NULL,SecondName=NULL,IDNo=NULL) {
+    FirstName = readline(prompt = &amp;quot;Enter FirstName: &amp;quot;)
+    SecondName = readline(prompt = &amp;quot;Enter SecondName: &amp;quot;)
+    IDNo = readline(prompt = &amp;quot;Enter IDNo: &amp;quot;)
+    id_acc = private$account_setup(IDNo)
+    account_details = tibble(
+        &amp;quot;Full Name&amp;quot; = paste(FirstName,SecondName),
+        &amp;quot;IDNo&amp;quot; = as.character(pluck(id_acc,&amp;#39;IDNo&amp;#39;)),
+        &amp;#39;AccountNo&amp;#39; = pluck(id_acc,&amp;#39;accno&amp;#39;),
+        &amp;#39;AccountBalance&amp;#39; = 0,
+        &amp;#39;LoanBalance&amp;#39; = 0
+      )
+    self$accs = bind_rows(self$accs,account_details) %&amp;gt;% filter(!is.na(IDNo))
+    cat(sprintf(&amp;quot;Hi %s, welcome to ABCBank.We look foward to doing business  with you!\nYour account number is %s&amp;quot;,
+                FirstName,account_details$AccountNo))
+    self$get_services(acc = account_details$AccountNo)
+    # return(invisible(account_details))
+  },
+  make_deposit = function(acc=NULL,Amount=NULL){
+    acc = readline(prompt = &amp;quot;Enter acc &amp;quot;)
+    Amount = as.numeric(readline(prompt = &amp;quot;Enter Amount &amp;quot;))
+    private$check_acc(acc = acc,expr = {
+      self$accs = self$accs %&amp;gt;% mutate(AccountBalance = ifelse(AccountNo == acc,AccountBalance+Amount,AccountBalance))
+      cat(glue(&amp;quot;Dear Customer,your deposit of Ksh {Amount} was received successfully.Your current balance is Ksh {
+                   pull(filter(self$accs,AccountNo == acc),AccountBalance )}&amp;quot;))})
+  },
+  make_withdrawal = function(acc=NULL,Amount=NULL){
+    acc = readline(prompt = &amp;quot;Enter acc &amp;quot;)
+    Amount =  as.numeric(readline(prompt = &amp;quot;Enter Amount &amp;quot;))
+    private$check_acc(acc = acc,expr = {
+      info = filter(self$accs,AccountNo == acc)
+      if ( (pull(info,AccountBalance) - 100) &amp;gt; Amount ) {
+        self$accs &amp;lt;- self$accs %&amp;gt;% mutate(
+          AccountBalance = ifelse(AccountNo == acc,AccountBalance - Amount,AccountBalance)
+        )
+      }else{
+        message(paste(&amp;#39; ----------\n Dear &amp;#39;,pull(info,`Full Name`),&amp;#39;,we are unable to process a your request due to low balance in your account.Please try a lower value&amp;#39;))
+      }
+    })
+    
+  },
+  check_balance = function(acc=NULL){
+    acc = readline(prompt = &amp;quot;Enter acc &amp;quot;)
+    private$check_acc(acc = acc,expr = {
+     balance =  self$accs %&amp;gt;% filter(AccountNo == acc) %&amp;gt;% pull(AccountBalance)
+     message(glue(&amp;quot;--------------\n Dear Customer,your account balance is Ksh {balance}.\n--------------&amp;quot;))
+    })
+  },
+  # loans
+  request_loan = function(acc=NULL,Amount=NULL){
+    acc = readline(prompt = &amp;quot;Enter acc &amp;quot;)
+    Amount =  as.numeric(readline(prompt = &amp;quot;Enter Amount &amp;quot;))
+    private$check_acc(acc = acc,expr = {
+      info = filter(self$accs,AccountNo == acc)
+      if ( (pull(info,LoanBalance)) &amp;lt;= 0 ) {
+        self$accs = self$accs %&amp;gt;% mutate(LoanBalance = ifelse(AccountNo == acc,Amount,LoanBalance))
+        cat(glue(&amp;quot;Dear Customer,your loan request of Ksh {Amount} was processed successfully.Your outstanding loan balance is Ksh {
+                   pull(filter(self$accs,AccountNo == acc),LoanBalance )}&amp;quot;))
+      }else{
+        message(glue(&amp;quot;Dear Customer,your loan request of Ksh {Amount} was not successfull.Please clear your outstanding loan balance of Ksh {
+                   pull(filter(self$accs,AccountNo == acc),LoanBalance )}.&amp;quot;))
+      }
+    })
+  },
+  repay_loan = function(acc=NULL,Amount=NULL) {
+    acc = readline(prompt = &amp;quot;Enter acc &amp;quot;)
+    Amount =  as.numeric(readline(prompt = &amp;quot;Enter Amount &amp;quot;))
+    private$check_acc(acc = acc,expr = {
+      info = filter(self$accs,AccountNo == acc)
+      if ((pull(info,LoanBalance)) &amp;gt; 0 ) {
+        self$accs = self$accs %&amp;gt;% mutate(LoanBalance = ifelse(AccountNo == acc,LoanBalance-Amount,LoanBalance),
+                                         AccountBalance = ifelse((AccountNo == acc) &amp;amp; (LoanBalance&amp;lt;0),abs(LoanBalance)+AccountBalance,AccountBalance ),
+                                         LoanBalance = ifelse(LoanBalance &amp;lt; 0 ,0,LoanBalance))
+        if ( (pull(info,LoanBalance)) &amp;gt;= Amount ) {
+          
+          cat(glue(&amp;quot;Dear Customer,your loan payment of Ksh {Amount} was processed successfully.Your outstanding loan balance is Ksh {
+                   pull(filter(self$accs,AccountNo == acc),LoanBalance )}&amp;quot;))
+        }else{
+          cat(glue(&amp;quot;Dear Customer,your loan payment of Ksh {Amount} was processed successfully.Your loan is cleared,extra amount of Ksh {abs((pull(info,LoanBalance)) - Amount)} was deposited in your transactional account&amp;quot;))
+        }
+      }else{
+        message(&amp;quot;Dear Customer,you do not have an existing loan.&amp;quot;)
+      }
+    })
+  },
+  check_loan_balance = function(acc=NULL){
+    acc = readline(prompt = &amp;quot;Enter acc &amp;quot;)
+    private$check_acc(acc = acc,expr = {
+      balance =  self$accs %&amp;gt;% filter(AccountNo == acc) %&amp;gt;% pull(LoanBalance)
+      cat(glue(&amp;quot;--------------\n Dear Customer,your loan account balance is Ksh {balance}.\n--------------&amp;quot;))
+    })
+  },
+  # simulate USSD!
+  get_services = function(acc = NULL) {
+    if (is.null(acc)) {
+      cat(&amp;#39;Welcome to ABC Banking Services!\nSelect\n1:Create new account\n2:Deposit\n3:Withdraw\n4:Request Loan\n5:Repay Loan\n6:My Account Balance\n7:My Loan Balance&amp;#39;)
+      input &amp;lt;- readline(prompt=&amp;quot;Enter here: &amp;quot;) 
+      switch (as.character(input),
+              &amp;quot;1&amp;quot; = self$create_account(),
+              &amp;quot;2&amp;quot; = self$make_deposit(),
+              &amp;quot;3&amp;quot; = self$make_withdrawal(),
+              &amp;quot;4&amp;quot; = self$request_loan(),
+              &amp;quot;5&amp;quot; = self$repay_loan(),
+              &amp;quot;6&amp;quot; = self$check_balance(),
+              &amp;quot;7&amp;quot; = self$check_loan_balance()
+      )
+    }else{
+      cat(paste(&amp;#39;-----------\nSelect\n1:Deposit\n2:Withdraw\n3:Request Loan\n4:Repay Loan\n5:My Account Balance\n6:My Loan Balance\n&amp;#39;))
+      input &amp;lt;- readline(prompt=&amp;quot;Enter here: \n--------------\n&amp;quot;) 
+      switch (as.character(input),
+              &amp;quot;1&amp;quot; = self$make_deposit(),
+              &amp;quot;2&amp;quot; = self$make_withdrawal(),
+              &amp;quot;3&amp;quot; = self$request_loan(),
+              &amp;quot;4&amp;quot; = self$repay_loan(),
+              &amp;quot;5&amp;quot; = self$check_balance(),
+              &amp;quot;6&amp;quot; = self$check_loan_balance()
+      )
+    }
+   
+  }), 
+  private = list(
+     account_setup = function(IDNo) {
+    if (nrow(filter(self$accs,!is.na(IDNo)) &amp;gt; 0 )) {
+      accno =  paste0(&amp;quot;00&amp;quot;,substr(paste0(sample(1:100, 12, replace=F),collapse = &amp;quot;&amp;quot;),1,9))
+      while (accno %in% self$accs$AccountNo) {
+        accno = as.character(rstudioapi::showPrompt(title = &amp;quot;IDNo&amp;quot;,message = &amp;quot;Enter here&amp;quot;))
+      }
+    }else{
+      accno =  paste0(&amp;quot;00&amp;quot;,substr(paste0(sample(1:100, 12, replace=F),collapse = &amp;quot;&amp;quot;),1,9))
+    }
+    # check if user exists
+    if (nrow(filter(self$accs,!is.na(IDNo)) &amp;gt; 0 )) {
+      while (IDNo %in% self$accs$IDNo) {
+        IDNo = as.character(rstudioapi::showPrompt(title = &amp;quot;IDNo&amp;quot;,message = &amp;quot;That ID already exists,Enter correct IDNo &amp;quot;))
+      }
+    }else{
+      IDNo = IDNo
+    }
+    out = list(
+      &amp;#39;IDNo&amp;#39; = IDNo,
+      &amp;#39;accno&amp;#39; = accno
+    )
+    return(out)
+  },
+     check_acc = function(acc,expr={...}) {
+       if (acc %in% self$accs$AccountNo) {
+         expr
+       }else{
+         message(&amp;quot;Account Supplied doesn&amp;#39;t exist!&amp;quot;)
+       }
+     }
+))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Lets instantiate&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ABCBank &amp;lt;- CBS$new(bank_name = &amp;quot;ABC Bank&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  --------- 
+##  This is  ABC Bank . 
+##  ---------&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;introspection&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Introspection&lt;/h2&gt;
+&lt;p&gt;We can always inspect our classes using the &lt;code&gt;class&lt;/code&gt; function and use &lt;code&gt;names&lt;/code&gt; function to get a list of all methods contained in a class as shown below from an instanciation.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;class(ABCBank)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;CBS&amp;quot; &amp;quot;R6&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can see it shows that our instance is from the CBS class and it inherits from R6 class.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;names(ABCBank)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;.__enclos_env__&amp;quot;    &amp;quot;bank_name&amp;quot;          &amp;quot;accs&amp;quot;              
+##  [4] &amp;quot;clone&amp;quot;              &amp;quot;get_services&amp;quot;       &amp;quot;check_loan_balance&amp;quot;
+##  [7] &amp;quot;repay_loan&amp;quot;         &amp;quot;request_loan&amp;quot;       &amp;quot;check_balance&amp;quot;     
+## [10] &amp;quot;make_withdrawal&amp;quot;    &amp;quot;make_deposit&amp;quot;       &amp;quot;create_account&amp;quot;    
+## [13] &amp;quot;initialize&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;All the methods discussed above are listed here.&lt;/p&gt;
+&lt;p&gt;Lets see a simple example of our system.&lt;/p&gt;
+&lt;p&gt;To use this system interactively,run the class above ,instanciate then call &lt;code&gt;get_services&lt;/code&gt; method.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ABCBank$get_services()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Welcome to ABC Banking Services!
+## Select
+## 1:Create new account
+## 2:Deposit
+## 3:Withdraw
+## 4:Request Loan
+## 5:Repay Loan
+## 6:My Account Balance
+## 7:My Loan BalanceEnter here:&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;finallly-.&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Finallly .&lt;/h2&gt;
+&lt;p&gt;Its important to note that when defining a method in a class you do not use &lt;code&gt;&amp;lt;-&lt;/code&gt; operator for assignment but the standard &lt;code&gt;=&lt;/code&gt; sign.&lt;/p&gt;
+&lt;p&gt;I will write about class inheritance and and other OOP concepts in R in my next blog.You are free to copy this script and play with it in your R studio console.&lt;/p&gt;
+&lt;p&gt;All the best.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

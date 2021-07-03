@@ -14,13 +14,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction
 
-Object Oriented Programming has been the best way to write programs in any language.But why OOP technique?As a matter of fact our physical world is made up of objects with different qualities.OOP is based on the concept of "object" which can contain data or code.
+Object Oriented Programming has been the best way to write programs in any language.But why OOP technique?As a matter of fact our physical world is made up of objects with different qualities.OOP is based on the concept of "objects" which can contain data or code.
 
-A good example can be a an animal object with several properties like movement,sound,diet,life span etc.We can also talk about a "bank object" , which I will be considering in this post, with properties like customers,accounts and methods like accounts creation,loan repayments etc.
+A good example can be an animal object with several properties like movement,sound,diet,life span etc.We can also talk about a "bank object" , which I will be considering in this post, with properties like customers,accounts and methods like accounts creation,loan repayments etc.
 
 ## Why OOP in R.
 
-Well,personally I begun my R journey with simple procedural oriented programming then I graduates to functional programming.Its only after being exposed to the goodies that come with structuring my scripts in an Object Oriented Way using python.R offers more than one method of writing Object Oriented programs such as S3,S4,R6 etc.In this post i will focus on using R6 Classes offered by the [R6 package](https://r6.r-lib.org/articles/Introduction.html).This is because it gives an almost similar method Python uses.If you are not good with python,you have nothing to worry,all you need to know is how to write an R function and simple operations.
+Well,personally I begun my R journey with simple procedure oriented programming then I graduated to functional programming.Its only after being exposed to the goodies that come with structuring my scripts in an Object Oriented Way using python.R offers more than one method of writing Object Oriented programs such as S3,S4,R6 etc.In this post i will focus on using R6 Classes offered by the [R6 package](https://r6.r-lib.org/articles/Introduction.html).This is because it gives an almost similar method Python uses.If you are not good with python,you have nothing to worry,all you need to know is how to write an R function and simple operations.
 
 Much about OOP can be found [here](https://en.wikipedia.org/wiki/Object-oriented_programming).
 
@@ -36,6 +36,7 @@ Some key concepts we are going to learn here are:
 ### Hypothetical example.
 
 In this post,I will go through a simple banking system that enables its us to:
+
  1. Create accounts
  
  1. Make deposits

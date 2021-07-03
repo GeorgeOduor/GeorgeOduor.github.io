@@ -1,0 +1,48 @@
+library(httr);library(jsonlite)
+
+
+token <- 'EAAM3UvUq6scBAIYHslgWjGvnhhKUZC0On62HFH0YJU5GYSqGfMW8YLINgLMpR5YvuAUXXXU4RscrxHcqgRKaGJjUKGA8zZA9A3E5bRR3gPy3lNnorqEZC8wtOcLQaIaZBmOistOx5yYGMiggnpHQuPGcEnv4K2W5MPz2IFzQV7oMyz4pFOf5Ah0ESPZBxjYGGCPxSCYxES3LXarut74bzYsJElOEYfHHOg2t5gjj0vgZDZD'
+fbused_id = "905254370208455"
+fb_user = '1882726461896348'
+call = sprintf("https://graph.facebook.com/%s?access_token=%s",fbused_id,token)
+
+response <- GET(url = call)
+fromJSON(content(response,"text"),flatten = T)
+field = 'age_range'
+call2 = URLencode(sprintf(
+  "https://graph.facebook.com/%s?fields=%s&access_token=%s",fb_user,field,token
+))
+response <- GET(url = call2)
+fromJSON(content(response,"text"),flatten = T)
+
+call3 = URLencode(sprintf(
+  "https://graph.facebook.com/%s/photos?access_token=%s",fb_user,token
+))
+response <- GET(url = call3)
+fromJSON(content(response,"text"),flatten = T)
+
+call4 = URLencode(sprintf(
+  "https://graph.facebook.com/%s?email=oduorgrg@gmail.com&access_token=%s",fb_user,token
+))
+response <- POST(url = call2)
+fromJSON(content(response,"text"),flatten = T)
+
+call4 = URLencode(sprintf(
+  "https://graph.facebook.com/object-id
+  ?access_token=your-access-token",fb_user,token
+))
+response <- POST(url = call2)
+fromJSON(content(response,"text"),flatten = T)
+Host = 'graph.facebook.com'
+url = sprintf(
+  "https://%s/v10.0/%s/locations?fields=about&limit=30000 HTTP/1.1",Host,fb_user
+)
+response <- GET(url = url)
+fromJSON(content(response,"text"),flatten = T)
+
+
+
+
+
+
+

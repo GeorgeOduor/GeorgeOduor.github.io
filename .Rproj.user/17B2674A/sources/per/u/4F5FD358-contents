@@ -1,0 +1,7 @@
+ex$Loan_List2 %>% select(ClientID,ProductID,AccountID,AccountName,LoanSeries,LoanAmount,DisbursedOn,OSPrinciple,ClearBalance,
+                         RepaymentFrequency,InstallmentDueDate,AccountCloseDate,GenderID,ArrearsDays,ArrearsAmount,
+                         IDNo,IDType,MobileNo,
+                         RepaymentAccountID,LastRepaymentDate) %>% rowid_to_column(var = 'id')->loanlist
+
+
+loanlist %>% dbWriteTable(conn = dbConnect(SQLite(),"E:/Automation/python/dist/apps/debtcollection/db.sqlite3"),"clientmanagement_loanlist",.,append=T)

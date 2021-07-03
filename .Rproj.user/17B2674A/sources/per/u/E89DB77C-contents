@@ -1,0 +1,13 @@
+api_key = 'kMLFFTXdZOcRfz7spG2Y0Lbng'
+api_secret_key = 'iqW9txWs6KnmiPIUcPF0vvV3gyenEGIWVBexNL487MFwLG4Elu'
+access_token = 'AAAAAAAAAAAAAAAAAAAAABliNwEAAAAAQRbfUXqSfcLMjc6oyWytzxtFqf4%3DIVTLp40tWFZPqsQndnEKeKeQ0buOSodoLZ6lbW8FhV9mVi1Qmp'
+
+
+
+## authenticate via web browser
+token <- create_token(
+  app = "rstatsjournalismresearch",
+  consumer_key = api_key,
+  consumer_secret = api_secret_key,
+  access_token = access_token,
+  access_secret = access_token_secret)

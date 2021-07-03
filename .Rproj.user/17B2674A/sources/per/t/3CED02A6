@@ -1,0 +1,32 @@
+{
+    "id": "3CED02A6",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1619553948337.0,
+    "source_on_save": false,
+    "relative_order": 7,
+    "properties": {
+        "expression": "loanlist",
+        "caption": "loanlist",
+        "totalObservations": 353749,
+        "displayedObservations": 353749,
+        "variables": 22,
+        "cacheKey": "C31A6D7A",
+        "object": "loanlist",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=loanlist&cache_key=C31A6D7A&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 3833469521884241713,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1619553948337,
+    "read_only": false,
+    "read_only_alternatives": []
+}

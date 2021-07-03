@@ -1,0 +1,20 @@
+library(Rfacebook);library(mbanalytics)
+og_oauth <- fbOAuth(app_id = '905254370208455',
+                    app_secret = '07145abaa6b0a2d0965c014ede60d84cRese')
+token = '905254370208455|TJTG38g56A22WUDoTOwn-68WYvQ'
+myself <- getUsers(users = "me",token = token)
+myself
+
+
+token <- 'EAAM3UvUq6scBAD0K7aYss0WcphGH2RZCHUtcfImTa0KxwZA1FFQWOSHTUKSZBGZBTr1PTTcXveNDWDNY3DFUdOhBTMd3rtdsduoJTT2owJ2qDTvRd7StRJtpk5w1ygwZBYQ0icYMZAWd1LT8RIrg3GPfCa1rY9UI5A33Tyn7ji7ZC6xPA5ZAsLpdncN5EnJl7em0B9RTZAkWSQwZDZD'
+me = getUsers("me",token,private_info = T)
+
+getPage(page = "Vingkeshopper",
+        token = token)
+
+cmd = glue::glue('curl -i -X GET "https://graph.facebook.com/{123442}/accounts
+     ?access_token={token}"')
+shell.exec(cmd)
+
+x = curl::curl(cmd)
+

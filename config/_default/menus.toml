@@ -12,38 +12,36 @@
  name = "Posts"
  url = "#posts"
  weight = 20
+ hasChildren = true
+ 
+[[main]]
+ name = "R"
+ url = "/categories/R/"
+ parent = "Posts"
 
 [[main]]
  name = "Projects"
   url = "#projects"
   weight = 30
 
-[[main]]
-  name = "Publications"
-  url = "#publications"
-  weight = 40
+
+  # weight = 40
 
 [[main]]
-  #  name = "Courses"
-  #  url = "courses/"
-  #  weight = 50
+    #name = "Courses"
+    #url = "courses/"
+    #weight = 50
+    #parent = "dropdown"
 
 [[main]]
   name = "Contact"
   url = "#contact"
   weight = 60
-
-#[[main]]
-  #  name = "dropdown"
- #   url = "#"
- #   hasChildren = true
-
-
-
+  
 
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
-# [[main]]
-#    name = "CV"
-#    url = "files/cv.pdf"
-#    weight = 70
+[[main]]
+    name = "My CV"
+    url = "files/cv.pdf"
+    weight = 70

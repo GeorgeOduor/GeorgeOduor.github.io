@@ -524,7 +524,7 @@ All the methods discussed above are listed here.
 
 Lets see a simple example of our system.
 
-To use this system interactively,run the class above ,instanciate then call `get_services` method.
+To use this system interactively,run the class above ,instantiate then call `get_services` method.
 
 ```{r}
 ABCBank$get_services()
@@ -538,3 +538,4 @@ I will write about class inheritance and and other OOP concepts in R in my next 
 
 
 All the best.
+

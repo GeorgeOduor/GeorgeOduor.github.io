@@ -12,19 +12,23 @@
  name = "Posts"
  url = "#posts"
  weight = 20
- hasChildren = true
+ #hasChildren = true
  
 [[main]]
  name = "R"
  url = "/categories/R/"
- parent = "Posts"
+ weight = 30
+ 
+ [[main]]
+ name = "Python"
+ url = "/categories/python/"
+ weight = 40
 
 [[main]]
  name = "Projects"
   url = "#projects"
-  weight = 30
-
-
+  weight = 50
+  
   # weight = 40
 
 [[main]]

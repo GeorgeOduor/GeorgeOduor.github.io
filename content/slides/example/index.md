@@ -1,13 +1,13 @@
 ---
-authors: []
+title: "Slides"
 categories: []
-date: "2019-02-05T00:00:00Z"
+date: '2019-02-05T00:00:00Z'
 slides:
   highlight_style: dracula
   theme: black
 summary: An introduction to using academia's Slides feature.
 tags: []
-title: Slides
+authors: []
 ---
 
 # Welcome to Slides
@@ -147,11 +147,9 @@ Let's make headers navy colored.
 Create `assets/css/reveal_custom.css` with:
 
 ```css
-.reveal section h1,
-.reveal section h2,
-.reveal section h3 {
+.reveal section h1,.reveal section h2,.reveal section h3 {
   color: navy;
-}
+  }
 ```
 
 ---

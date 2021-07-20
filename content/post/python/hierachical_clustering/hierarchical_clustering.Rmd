@@ -39,20 +39,24 @@ Classification predicts categorical class labels which mean assigning instances 
 Uses of Clustering in different industries.
 
 - __Retail/Marketing__
- - _Identifying buying patterns of customers._
- - _Recommending new books or movies to new customers_
+    
+    - _Identifying buying patterns of customers._
+    - _Recommending new books or movies to new customers_
  
 - __Banking:__
- - _Fraud detection in credit card use_
- - _Identifying clusters of customers_
+
+    - _Fraud detection in credit card use_
+    - _Identifying clusters of customers_
  
 - __Insurance:__
- - _Fraud detection in claims analysis._
- - _Insurance risk of customers._
+
+    - _Fraud detection in claims analysis._
+    - _Insurance risk of customers._
 
 - __Publication:__
- - _Auto-categorizing news based on their content_
- - _Recommending similar news articles_
+
+    - _Auto-categorizing news based on their content_
+    - _Recommending similar news articles_
  
 - __Medicine:__
   - _Characterizing patient behavior_

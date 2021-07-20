@@ -50,7 +50,7 @@ user_groups:
 - Visitors
 ---
 
-I am a passionate Data Scientist with interest in applications of Machine Learning and Artificial intelligence in Business analytics and Inovation. I love making data driven applications in Python and R. 
+I am a passionate Data Scientist with interest in applications of Machine Learning and Artificial intelligence in __Evidence based Business analytics and Innovation__. I love making data driven applications in Python and R. 
 
 Messy data is my friend.
  

@@ -22,6 +22,15 @@
     </item>
     
     <item>
+      <title>Posts</title>
+      <link>https://georgeoduor.netlify.app/post/</link>
+      <pubDate>Thu, 15 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://georgeoduor.netlify.app/post/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Courses</title>
       <link>https://georgeoduor.netlify.app/courses/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
@@ -54,15 +63,6 @@
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>https://georgeoduor.netlify.app/project/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Posts</title>
-      <link>https://georgeoduor.netlify.app/post/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://georgeoduor.netlify.app/post/</guid>
       <description></description>
     </item>
     

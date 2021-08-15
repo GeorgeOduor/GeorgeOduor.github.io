@@ -15,7 +15,7 @@ day_night = true
 font = "classic"
 
 # Description for social sharing and search engines. If undefined, superuser role is used in place.
-description = 'George is a hardworking Statistician with deep expertise in quantitative and qualitative analysis. Offering strengths in assessing data reliability and eliminating errors.Expert in data science and machine learning techniques and tools such as Python, R, SPSS, STATA, Tableau, and advanced excel.Nothing inspires me as getting my hands dirty with "dirty" data.'
+description = 'I am a passionate Data Scientist with interest in applications of Machine Learning and Artificial intelligence in Evidence based Business analytics and Innovation. I love making data driven applications in Python and R.'
 # Default image for social sharing and search engines. Place image in `static/img/` folder and specify image name here.
 sharing_image = "oduor.jpg"
 

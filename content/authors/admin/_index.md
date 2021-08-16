@@ -2,7 +2,7 @@
 authors:
 - admin
 avatar_image: 'full2.jpg'
-bio: My main area of interest in data science  include Fintech,Business and AI driven.
+bio: My main areas of interest in data science  include Fintech,Business development and AI driven.
 btn:
 - label: Download My Resume
   url: https://sourcethemes.com/academic/docs/install/

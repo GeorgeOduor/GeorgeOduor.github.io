@@ -4,7 +4,7 @@ external_link: https://github.com/GeorgeOduor/Python_Statistical_Analysis/blob/m
 image:
   caption: 
   focal_point: Smart
-summary: Who is going to click that Ad?This project answers this quastion using Logistic regression.
+summary: Who is going to click that Ad?This project answers this question using Logistic regression.
 tags:
 - ml
 title: DIGITAL MARKETING

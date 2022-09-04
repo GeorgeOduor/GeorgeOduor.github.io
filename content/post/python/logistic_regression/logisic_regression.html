@@ -97,7 +97,7 @@ X.head()</code></pre>
 <pre class="python"><code>target_summary = pd.Series(y).value_counts(normalize=True)
 
 plt.pie(target_summary.values,labels=[1,0],autopct=&#39;%1.1f%%&#39;, startangle=30)</code></pre>
-<pre><code>## ([&lt;matplotlib.patches.Wedge object at 0x000000004A995FD0&gt;, &lt;matplotlib.patches.Wedge object at 0x000000004A9A74C0&gt;], [Text(-0.5529900114284673, 0.9508953923856944, &#39;1&#39;), Text(0.5529900114284679, -0.9508953923856941, &#39;0&#39;)], [Text(-0.30163091532461844, 0.5186702140285605, &#39;50.1%&#39;), Text(0.30163091532461883, -0.5186702140285604, &#39;49.9%&#39;)])</code></pre>
+<pre><code>## ([&lt;matplotlib.patches.Wedge object at 0x0000000048965FD0&gt;, &lt;matplotlib.patches.Wedge object at 0x00000000489774C0&gt;], [Text(-0.5529900114284673, 0.9508953923856944, &#39;1&#39;), Text(0.5529900114284679, -0.9508953923856941, &#39;0&#39;)], [Text(-0.30163091532461844, 0.5186702140285605, &#39;50.1%&#39;), Text(0.30163091532461883, -0.5186702140285604, &#39;49.9%&#39;)])</code></pre>
 <pre class="python"><code>plt.title(&quot;Distribution of the Target Variable&quot;)
 plt.show()</code></pre>
 <p><img src="/post/python/logistic_regression/logisic_regression_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
@@ -195,7 +195,8 @@ pd.DataFrame(cm)</code></pre>
 ## 0  887  111
 ## 1  130  872</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>ROC.</li>
+<li><p>ROC.</p>
+<p>ROC curve shows the trade off between sensitivity and specificity.The higher the AUC the the better the model is at distinguishing between the classes.</p></li>
 </ol>
 <pre class="python"><code>preds = y_hat_prob[:,1]
 fpr, tpr, threshold = roc_curve(y_test, preds)
@@ -208,6 +209,6 @@ df = pd.DataFrame(dict(fpr = fpr, tpr = tpr))
         x = &quot;False Positive Rate&quot;,
         y=&quot;True Positive Rate&quot;) + 
     geom_abline(linetype = &#39;dashed&#39;))</code></pre>
-<pre><code>## &lt;ggplot: (95700194)&gt;</code></pre>
+<pre><code>## &lt;ggplot: (9767629)&gt;</code></pre>
 <p><img src="/post/python/logistic_regression/logisic_regression_files/figure-html/unnamed-chunk-13-9.png" width="614" /></p>
 </div>

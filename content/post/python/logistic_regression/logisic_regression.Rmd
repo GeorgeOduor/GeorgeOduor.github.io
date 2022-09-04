@@ -5,59 +5,54 @@ date:  "2022-08-29T00:00:00Z"
 categories: ["Python"]
 tags: ["Python", "Machine Learning","Supervised Learning","Classification","Regression"]
 img : 'oop.png'
+output: rmdformats::material 
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-1. What is logistic regression?
-    - Applications in real life.
-1. Brief Mathematical background
-1. Implementation with python
-1. Model Validation
-1. Model Improvement
-1. Conclusion
-
+1.  What is logistic regression?
+    -   Applications in real life.
+2.  Brief Mathematical background
+3.  Implementation with python
+4.  Model Validation
+5.  Model Improvement
+6.  Conclusion
 
 ## What is logistic regression?
 
-Logistic regression is a classification method that uses regression technique as an internal component.This model works by estimating an unknown probability _p_ for any given liner combination of the independent variables.
+Logistic regression is a classification method that uses regression technique as an internal component.This model works by estimating an unknown probability *p* for any given liner combination of the independent variables.
 
-__Binary Logistic regression__:This is when the dependent variable is presented in two categories eg _win vs good_ in the case of credit risk prediction
+**Binary Logistic regression**:This is when the dependent variable is presented in two categories e.g *win vs good* in the case of credit risk prediction
 
-__Multinomial Logistic Regression__ : This is applicable when the dependent variable is presented in more than 2 categories eg _married,single,divorced or widowed_.
+**Multinomial Logistic Regression** : This is applicable when the dependent variable is presented in more than 2 categories eg *married,single,divorced or widowed*.
 
-In this blog,I am going to focus on _binary_ variant.
+In this blog,I am going to focus on *binary* variant.
 
 ## Brief Mathematical background
 
-Mathematically,a set of explanatory variables is used to predict a _logit transformation_ of the dependent variable.Taking the credit risk scenario above,say the outcomes good and bad are marked 0 and 1 respectively.In most instances the positive class is labeled 1 and the negative class is marked 0.
+Mathematically,a set of explanatory variables is used to predict a *logit transformation* of the dependent variable.Taking the credit risk scenario above,say the outcomes good and bad are marked 0 and 1 respectively.In most instances the positive class is labeled 1 and the negative class is marked 0.
 
 mathematically this is represented as :
 
-$$p(good) = p$$
-$$p(bad) = 1-q $$
+$$p(good) = p$$ $$p(bad) = 1-q $$
 
-__Logistic Model__
+**Logistic Model**
 
-In linear regression, a linear function of indepenednt variables shown below is used to successfully estimate the dependent variables.
+In linear regression, a linear function of independent variables shown below is used to successfully estimate the dependent variables.
 
-$$p(x) = \beta_0+\beta_1X$$
-Logistic regression estimates range form 0 to 1 depending on the probability of the outcome.In order to get this, a logistic function is therefore used,ie
+$$p(x) = \beta_0+\beta_1X$$ Logistic regression estimates range form 0 to 1 depending on the probability of the outcome.In order to get this, a logistic function is therefore used,i.e
 
-$$p(X) = \frac{e^{\beta_0+\beta_1X}}{1+e^{\beta_0+\beta_1X}}$$
-The model above is fitted using _maximum likelihood method_.This equation can be re written as :
-$$\frac{p(X)}{1-p(X)} = e^{\beta_0+\beta_1X}$$
-From the above $p(X)/(1-p(X))$ equals the odds.The higher the odds the higher the probability of the positive class.
+$$p(X) = \frac{e^{\beta_0+\beta_1X}}{1+e^{\beta_0+\beta_1X}}$$ The model above is fitted using *maximum likelihood method*.This equation can be re written as : $$\frac{p(X)}{1-p(X)} = e^{\beta_0+\beta_1X}$$ From the above $p(X)/(1-p(X))$ equals the odds.The higher the odds the higher the probability of the positive class.
 
 If we take the logarithm of both sides:
 
 $$log(\frac{p(X)}{1-p(X)}) = \beta_0+\beta_1X $$
 
-The left hand side gives the _log odds_ or the logit value.
+The left hand side gives the *log odds* or the logit value.
 
-__Coefficient Estimation.__
+**Coefficient Estimation.**
 
 The coefficients are estimated using maximum likelihood technique.This is beyond the scope of this blog.
 
@@ -68,13 +63,19 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+from plotnine import * 
 
 from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split,GridSearchCV
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report,auc,confusion_matrix,roc_curve
 ```
 
-### Dataset
+### Data-set
 
-For demonstration purposes,we are going to generate synthetic data using sklearn.
+For demonstration purposes,we are going to generate synthetic data using `sklearn`.
 
 ```{python}
 X,y = make_classification(n_samples=10000, n_features=5, n_redundant=0, n_classes=2, n_clusters_per_class=1, class_sep=1.0, random_state=0)
@@ -91,6 +92,12 @@ X = pd.DataFrame(X,columns=[f"var_{i}" for i in range(1,6)])
 X.head()
 ```
 
+```{python}
+X.info()
+```
+
+Since this is a synthetically generated data set,we do not have any missing values.This is a scenario which is not available in real life datasets.
+
 ## Exploratory Data Analysis
 
 Its important to investigate the distribution of every variable.This helps to spot any anomalies like outliers,missing values or skewness.Such factors greatly affect the output of models.
@@ -105,9 +112,9 @@ plt.title("Distribution of the Target Variable")
 plt.show()
 ```
 
-__Observations and Inferences__
+**Observations and Inferences**
 
-- The classes have a slight difference in proportion,meaning we have a fairly balanced class.
+-   The classes have a slight difference in proportion,meaning we have a fairly balanced class.
 
 ### Independent/Explanatory Variables
 
@@ -118,30 +125,107 @@ for i in range(5):
   plt.hist(X[X.columns[i]])
   plt.xlabel(f"{X.columns[i]}")
 fig.tight_layout()
+fig.suptitle("Distribution of numerical variables.")
 plt.show()
 
 ```
 
-__Observations and Inferences__
+**Observations and Inferences**
 
-- All the 5 variables generated appear to be normally distributed shown by the bell shaped histograms.This is one characteristic that is favorable for logistic regression.
+-   All the 5 variables generated appear to be normally distributed shown by the bell shaped histograms.This is one characteristic that is favorable for logistic regression.
 
-__Variable Correlation__
+**Variable Correlation**
 
 ```{python}
 p1 = sns.heatmap(X.corr(),annot=True,fmt='.2f',cmap="viridis",linewidth=.5,vmax=.3, square=True)
 p1
 ```
 
+**Observations and Inferences**
 
-__Observations and Inferences__
+-   From the correlation heat map above,we can observe that all the variables are not highly correlated.This is a good property expected for independent variables.
 
-- From the correlation heat map above,we can observe that all the variables are not highly correlated.This is a good property expected for independent variables.
+**Relationship between the target variable and explanatory variables**
 
+In order to look into this,we will have to combine the target variable and the independent variables.
 
-__Relationship between the target variable and
-```{r}
-34
+```{python}
+combi = pd.concat(objs = [X, pd.Series(y)], axis = 1)
+combi.columns = list(X)+['target']
+sns.pairplot(combi,hue='target')
 ```
 
+1.  Distribution of Independent variables vs dependent variable
 
+**Observations and inferences**
+
+-   The two classes are distinctive on various combinations of the variables whereas in some variables this distinction is not clear.
+
+-   Looking at the diagonal density plots ,its also evident that only var_3 and var_4 have difference in distribution with respect to the target variable.
+
+-   In case of future engineering,a combination of these variables would yield variables that are more distinctive.
+
+## Data Pre-processing
+
+In order to proceed with logistic model,the data sample will be split into two sets namely *train* and *test* sets.This is important to avoid over-fitting and *under-fitting* problems.The two are one of the main challenges in machine learning which can lead to erroneous models.
+
+**Train test split**
+
+```{python}
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42,stratify=y)
+```
+
+## **Model Development**.
+
+```{python}
+scaler = StandardScaler()
+logreg = LogisticRegression(max_iter=10000)
+pipe = Pipeline(
+  steps = [
+    ("scaler",scaler),
+    ("logreg",logreg),
+  ]
+)
+pipe.fit(X_train,y_train)
+```
+
+## Model Evaluation
+
+In order to evaluate how this model performed,there are several classification model metrics that can be performed:
+
+1.  Accuracy Score : This is the percentage of correctly predicted classes
+
+```{python}
+y_hat = pipe.predict(X_test)
+y_hat_prob = pipe.predict_proba(X_test)
+
+print(classification_report(y_test,y_hat))
+```
+
+2.  Confusion Matrix : Gives a tabular view of predicted vs actual classes
+
+```{python}
+cm = confusion_matrix(y_test,y_hat)
+# fig = plt.figure(2)
+# p2 = sns.heatmap(cm,cmap='viridis',annot=True)
+pd.DataFrame(cm)
+```
+
+3.  ROC.
+
+    ROC curve shows the trade off between sensitivity and specificity.The higher the AUC the the better the model is at distinguishing between the classes.
+
+```{python}
+preds = y_hat_prob[:,1]
+fpr, tpr, threshold = roc_curve(y_test, preds)
+roc_auc = auc(fpr, tpr)
+
+df = pd.DataFrame(dict(fpr = fpr, tpr = tpr))
+(ggplot(df, aes(x = 'fpr', y = 'tpr')) + 
+    geom_line() + 
+    labs(title="ROC Curve {}".format(round(roc_auc,2)),
+        x = "False Positive Rate",
+        y="True Positive Rate") + 
+    geom_abline(linetype = 'dashed'))
+
+```

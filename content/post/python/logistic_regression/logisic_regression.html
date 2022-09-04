@@ -5,6 +5,7 @@ date:  "2022-08-29T00:00:00Z"
 categories: ["Python"]
 tags: ["Python", "Machine Learning","Supervised Learning","Classification","Regression"]
 img : 'oop.png'
+output: rmdformats::material 
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
@@ -24,7 +25,7 @@ img : 'oop.png'
 <div id="what-is-logistic-regression" class="section level2">
 <h2>What is logistic regression?</h2>
 <p>Logistic regression is a classification method that uses regression technique as an internal component.This model works by estimating an unknown probability <em>p</em> for any given liner combination of the independent variables.</p>
-<p><strong>Binary Logistic regression</strong>:This is when the dependent variable is presented in two categories eg <em>win vs good</em> in the case of credit risk prediction</p>
+<p><strong>Binary Logistic regression</strong>:This is when the dependent variable is presented in two categories e.g <em>win vs good</em> in the case of credit risk prediction</p>
 <p><strong>Multinomial Logistic Regression</strong> : This is applicable when the dependent variable is presented in more than 2 categories eg <em>married,single,divorced or widowed</em>.</p>
 <p>In this blog,I am going to focus on <em>binary</em> variant.</p>
 </div>
@@ -32,16 +33,11 @@ img : 'oop.png'
 <h2>Brief Mathematical background</h2>
 <p>Mathematically,a set of explanatory variables is used to predict a <em>logit transformation</em> of the dependent variable.Taking the credit risk scenario above,say the outcomes good and bad are marked 0 and 1 respectively.In most instances the positive class is labeled 1 and the negative class is marked 0.</p>
 <p>mathematically this is represented as :</p>
-<p><span class="math display">\[p(good) = p\]</span>
-<span class="math display">\[p(bad) = 1-q \]</span></p>
+<p><span class="math display">\[p(good) = p\]</span> <span class="math display">\[p(bad) = 1-q \]</span></p>
 <p><strong>Logistic Model</strong></p>
-<p>In linear regression, a linear function of indepenednt variables shown below is used to successfully estimate the dependent variables.</p>
-<p><span class="math display">\[p(x) = \beta_0+\beta_1X\]</span>
-Logistic regression estimates range form 0 to 1 depending on the probability of the outcome.In order to get this, a logistic function is therefore used,ie</p>
-<p><span class="math display">\[p(X) = \frac{e^{\beta_0+\beta_1X}}{1+e^{\beta_0+\beta_1X}}\]</span>
-The model above is fitted using <em>maximum likelihood method</em>.This equation can be re written as :
-<span class="math display">\[\frac{p(X)}{1-p(X)} = e^{\beta_0+\beta_1X}\]</span>
-From the above <span class="math inline">\(p(X)/(1-p(X))\)</span> equals the odds.The higher the odds the higher the probability of the positive class.</p>
+<p>In linear regression, a linear function of independent variables shown below is used to successfully estimate the dependent variables.</p>
+<p><span class="math display">\[p(x) = \beta_0+\beta_1X\]</span> Logistic regression estimates range form 0 to 1 depending on the probability of the outcome.In order to get this, a logistic function is therefore used,i.e</p>
+<p><span class="math display">\[p(X) = \frac{e^{\beta_0+\beta_1X}}{1+e^{\beta_0+\beta_1X}}\]</span> The model above is fitted using <em>maximum likelihood method</em>.This equation can be re written as : <span class="math display">\[\frac{p(X)}{1-p(X)} = e^{\beta_0+\beta_1X}\]</span> From the above <span class="math inline">\(p(X)/(1-p(X))\)</span> equals the odds.The higher the odds the higher the probability of the positive class.</p>
 <p>If we take the logarithm of both sides:</p>
 <p><span class="math display">\[log(\frac{p(X)}{1-p(X)}) = \beta_0+\beta_1X \]</span></p>
 <p>The left hand side gives the <em>log odds</em> or the logit value.</p>
@@ -54,11 +50,17 @@ From the above <span class="math inline">\(p(X)/(1-p(X))\)</span> equals the odd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+from plotnine import * 
 
-from sklearn.datasets import make_classification</code></pre>
-<div id="dataset" class="section level3">
-<h3>Dataset</h3>
-<p>For demonstration purposes,we are going to generate synthetic data using sklearn.</p>
+from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split,GridSearchCV
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report,auc,confusion_matrix,roc_curve</code></pre>
+<div id="data-set" class="section level3">
+<h3>Data-set</h3>
+<p>For demonstration purposes,we are going to generate synthetic data using <code>sklearn</code>.</p>
 <pre class="python"><code>X,y = make_classification(n_samples=10000, n_features=5, n_redundant=0, n_classes=2, n_clusters_per_class=1, class_sep=1.0, random_state=0)</code></pre>
 <p>The a above line of code creates 10,000 records/observations,5 independent variables and 2 classes.</p>
 <pre class="python"><code>X.shape</code></pre>
@@ -71,19 +73,34 @@ X.head()</code></pre>
 ## 2 -0.832969  1.373999  1.316564 -0.461627 -0.370726
 ## 3 -0.215716  0.845586  1.287381 -0.578560  0.464281
 ## 4 -0.508678 -1.620086  2.262457  2.688621  1.423795</code></pre>
+<pre class="python"><code>X.info()</code></pre>
+<pre><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+## RangeIndex: 10000 entries, 0 to 9999
+## Data columns (total 5 columns):
+##  #   Column  Non-Null Count  Dtype  
+## ---  ------  --------------  -----  
+##  0   var_1   10000 non-null  float64
+##  1   var_2   10000 non-null  float64
+##  2   var_3   10000 non-null  float64
+##  3   var_4   10000 non-null  float64
+##  4   var_5   10000 non-null  float64
+## dtypes: float64(5)
+## memory usage: 390.8 KB</code></pre>
+<p>Since this is a synthetically generated data set,we do not have any missing values.This is a scenario which is not available in real life datasets.</p>
 </div>
 </div>
 <div id="exploratory-data-analysis" class="section level2">
 <h2>Exploratory Data Analysis</h2>
+<p>Its important to investigate the distribution of every variable.This helps to spot any anomalies like outliers,missing values or skewness.Such factors greatly affect the output of models.</p>
 <div id="targetdependent-variable" class="section level3">
 <h3>Target/Dependent Variable</h3>
 <pre class="python"><code>target_summary = pd.Series(y).value_counts(normalize=True)
 
 plt.pie(target_summary.values,labels=[1,0],autopct=&#39;%1.1f%%&#39;, startangle=30)</code></pre>
-<pre><code>## ([&lt;matplotlib.patches.Wedge object at 0x00000000455380B8&gt;, &lt;matplotlib.patches.Wedge object at 0x0000000045538860&gt;], [Text(-0.5529900114284673, 0.9508953923856944, &#39;1&#39;), Text(0.5529900114284679, -0.9508953923856941, &#39;0&#39;)], [Text(-0.30163091532461844, 0.5186702140285605, &#39;50.1%&#39;), Text(0.30163091532461883, -0.5186702140285604, &#39;49.9%&#39;)])</code></pre>
+<pre><code>## ([&lt;matplotlib.patches.Wedge object at 0x000000004A995FD0&gt;, &lt;matplotlib.patches.Wedge object at 0x000000004A9A74C0&gt;], [Text(-0.5529900114284673, 0.9508953923856944, &#39;1&#39;), Text(0.5529900114284679, -0.9508953923856941, &#39;0&#39;)], [Text(-0.30163091532461844, 0.5186702140285605, &#39;50.1%&#39;), Text(0.30163091532461883, -0.5186702140285604, &#39;49.9%&#39;)])</code></pre>
 <pre class="python"><code>plt.title(&quot;Distribution of the Target Variable&quot;)
 plt.show()</code></pre>
-<p><img src="/post/python/logistic_regression/logisic_regression_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/post/python/logistic_regression/logisic_regression_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p><strong>Observations and Inferences</strong></p>
 <ul>
 <li>The classes have a slight difference in proportion,meaning we have a fairly balanced class.</li>
@@ -92,12 +109,14 @@ plt.show()</code></pre>
 <div id="independentexplanatory-variables" class="section level3">
 <h3>Independent/Explanatory Variables</h3>
 <pre class="python"><code>fig = plt.figure(1)
-for i in range(4):
+for i in range(5):
   plt.subplot(1,5,i+1)
   plt.hist(X[X.columns[i]])
   plt.xlabel(f&quot;{X.columns[i]}&quot;)
+fig.tight_layout()
+fig.suptitle(&quot;Distribution of numerical variables.&quot;)
 plt.show()</code></pre>
-<p><img src="/post/python/logistic_regression/logisic_regression_files/figure-html/unnamed-chunk-6-3.png" width="672" /></p>
+<p><img src="/post/python/logistic_regression/logisic_regression_files/figure-html/histograms-3.png" width="672" /></p>
 <p><strong>Observations and Inferences</strong></p>
 <ul>
 <li>All the 5 variables generated appear to be normally distributed shown by the bell shaped histograms.This is one characteristic that is favorable for logistic regression.</li>
@@ -110,7 +129,85 @@ p1</code></pre>
 <ul>
 <li>From the correlation heat map above,we can observe that all the variables are not highly correlated.This is a good property expected for independent variables.</li>
 </ul>
-<pre class="r"><code>34</code></pre>
-<pre><code>## [1] 34</code></pre>
+<p><strong>Relationship between the target variable and explanatory variables</strong></p>
+<p>In order to look into this,we will have to combine the target variable and the independent variables.</p>
+<pre class="python"><code>combi = pd.concat(objs = [X, pd.Series(y)], axis = 1)
+combi.columns = list(X)+[&#39;target&#39;]
+sns.pairplot(combi,hue=&#39;target&#39;)</code></pre>
+<p><img src="/post/python/logistic_regression/logisic_regression_files/figure-html/unnamed-chunk-8-7.png" width="651" /></p>
+<ol style="list-style-type: decimal">
+<li>Distribution of Independent variables vs dependent variable</li>
+</ol>
+<p><strong>Observations and inferences</strong></p>
+<ul>
+<li><p>The two classes are distinctive on various combinations of the variables whereas in some variables this distinction is not clear.</p></li>
+<li><p>Looking at the diagonal density plots ,its also evident that only var_3 and var_4 have difference in distribution with respect to the target variable.</p></li>
+<li><p>In case of future engineering,a combination of these variables would yield variables that are more distinctive.</p></li>
+</ul>
 </div>
+</div>
+<div id="data-pre-processing" class="section level2">
+<h2>Data Pre-processing</h2>
+<p>In order to proceed with logistic model,the data sample will be split into two sets namely <em>train</em> and <em>test</em> sets.This is important to avoid over-fitting and <em>under-fitting</em> problems.The two are one of the main challenges in machine learning which can lead to erroneous models.</p>
+<p><strong>Train test split</strong></p>
+<pre class="python"><code>X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42,stratify=y)</code></pre>
+</div>
+<div id="model-development." class="section level2">
+<h2><strong>Model Development</strong>.</h2>
+<pre class="python"><code>scaler = StandardScaler()
+logreg = LogisticRegression(max_iter=10000)
+pipe = Pipeline(
+  steps = [
+    (&quot;scaler&quot;,scaler),
+    (&quot;logreg&quot;,logreg),
+  ]
+)
+pipe.fit(X_train,y_train)</code></pre>
+<pre><code>## Pipeline(steps=[(&#39;scaler&#39;, StandardScaler()),
+##                 (&#39;logreg&#39;, LogisticRegression(max_iter=10000))])</code></pre>
+</div>
+<div id="model-evaluation" class="section level2">
+<h2>Model Evaluation</h2>
+<p>In order to evaluate how this model performed,there are several classification model metrics that can be performed:</p>
+<ol style="list-style-type: decimal">
+<li>Accuracy Score : This is the percentage of correctly predicted classes</li>
+</ol>
+<pre class="python"><code>y_hat = pipe.predict(X_test)
+y_hat_prob = pipe.predict_proba(X_test)
+
+print(classification_report(y_test,y_hat))</code></pre>
+<pre><code>##               precision    recall  f1-score   support
+## 
+##            0       0.87      0.89      0.88       998
+##            1       0.89      0.87      0.88      1002
+## 
+##     accuracy                           0.88      2000
+##    macro avg       0.88      0.88      0.88      2000
+## weighted avg       0.88      0.88      0.88      2000</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Confusion Matrix : Gives a tabular view of predicted vs actual classes</li>
+</ol>
+<pre class="python"><code>cm = confusion_matrix(y_test,y_hat)
+# fig = plt.figure(2)
+# p2 = sns.heatmap(cm,cmap=&#39;viridis&#39;,annot=True)
+pd.DataFrame(cm)</code></pre>
+<pre><code>##      0    1
+## 0  887  111
+## 1  130  872</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>ROC.</li>
+</ol>
+<pre class="python"><code>preds = y_hat_prob[:,1]
+fpr, tpr, threshold = roc_curve(y_test, preds)
+roc_auc = auc(fpr, tpr)
+
+df = pd.DataFrame(dict(fpr = fpr, tpr = tpr))
+(ggplot(df, aes(x = &#39;fpr&#39;, y = &#39;tpr&#39;)) + 
+    geom_line() + 
+    labs(title=&quot;ROC Curve {}&quot;.format(round(roc_auc,2)),
+        x = &quot;False Positive Rate&quot;,
+        y=&quot;True Positive Rate&quot;) + 
+    geom_abline(linetype = &#39;dashed&#39;))</code></pre>
+<pre><code>## &lt;ggplot: (95700194)&gt;</code></pre>
+<p><img src="/post/python/logistic_regression/logisic_regression_files/figure-html/unnamed-chunk-13-9.png" width="614" /></p>
 </div>

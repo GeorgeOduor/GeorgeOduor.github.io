@@ -3,9 +3,10 @@ title: "Logistic Regression with Python Implementation"
 author: "George Oduor"
 date:  "2022-08-29T00:00:00Z"
 categories: ["Python"]
-tags: ["Python", "Machine Learning","Supervised Learning","Classification","Regression"]
+tags: []
 img : 'oop.png'
 output: rmdformats::material 
+share: false
 ---
 
 ```{r setup, include=FALSE}
@@ -13,11 +14,17 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 1.  What is logistic regression?
+
     -   Applications in real life.
+
 2.  Brief Mathematical background
+
 3.  Implementation with python
+
 4.  Model Validation
+
 5.  Model Improvement
+
 6.  Conclusion
 
 ## What is logistic regression?
@@ -229,3 +236,7 @@ df = pd.DataFrame(dict(fpr = fpr, tpr = tpr))
     geom_abline(linetype = 'dashed'))
 
 ```
+
+An ROC value of 95% is an indication that the model above was excellent.
+
+The model can be further improved by further feature engineering,

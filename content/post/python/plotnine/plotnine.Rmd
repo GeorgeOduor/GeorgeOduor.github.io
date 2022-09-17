@@ -1,5 +1,5 @@
 ---
-title: "Using ggplot2 Syntax in Python"
+title: "Use ggplot2 Syntax in Python"
 author: "George Oduor"
 date:  "2022-09-16T00:00:00Z"
 categories: ["Python"]
@@ -11,9 +11,7 @@ output:
 share: false
 ---
 
-# Introduction
-
-R language has a rich graphical tool used for producing standard professional plots called `ggplot2.` For someone coming from *R* to *python*,learning python's graphical tools such as `matplotlib` and `seaborn` can be quite intimidating.For this reason,in this blog I will illustrate how,armed with R knowledge,one can proceed and create stunning plots in python without much needing the python knowledge.
+[R](https://www.r-project.org/) language has a rich graphical tool used for producing standard professional plots called `ggplot2.` For someone coming from *R* to *python*,learning python's graphical tools such as `matplotlib` and `seaborn` can be quite intimidating.For this reason,in this blog I will illustrate how,armed with R knowledge,one can proceed and create stunning plots in python without much needing the python knowledge.
 
 # Contents
 
@@ -49,7 +47,7 @@ from plotnine import *
 from plotnine.data import txhousing
 ```
 
-## Quick Overview of the dataset
+## Quick Overview of the data set
 
 ```{python}
 txhousing.info()
@@ -100,7 +98,7 @@ To use themes,its recommenced to import the `themes` module form `plotnine.`
 
 In the script below `theme_matplotlib` has been applied together with a custom theme.
 
-```{python}
+```{python ,echo=F}
 from plotnine.themes import *
 
 ggplot(txhousing,aes(x='month',y="sales"))+ \

@@ -67,7 +67,7 @@ Just like in R's `ggplot`,in order to make a plot you must specify the data set 
 # few house keeping scripts
 txhousing = txhousing.sort_values('month')
 txhousing.month = txhousing.month.astype(object)
-txhousing = txhousing[txhousing.city.isin(['Abilene','Amarillo','arlingen'])]
+txhousing = txhousing[txhousing.city.isin(['Abilene','Amarillo','Arlington','Brownsville'])]
 ggplot(txhousing,aes(x='month',y="sales"))
 ```
 
@@ -130,7 +130,7 @@ ggplot(txhousing,aes(x='month',y="sales"))+ \
       axis_title_x = element_text(size=10,color="orange"),
       rect = element_rect(color="black",fill="gray"),
       plot_background=element_rect(fill='cyan'))+\
-    facet_grid('city ~ .',scales='free')
+    facet_wrap(' ~ city')
 ```
 
 From the introductory examples above,its clear that with a sound experience with `ggplot2,` package one can quickly get up and running with visualization in python since the syntax is purely the same.

@@ -75,9 +75,9 @@ from plotnine.data import txhousing</code></pre>
 <pre class="python"><code># few house keeping scripts
 txhousing = txhousing.sort_values(&#39;month&#39;)
 txhousing.month = txhousing.month.astype(object)
-txhousing = txhousing[txhousing.city.isin([&#39;Abilene&#39;,&#39;Amarillo&#39;,&#39;arlingen&#39;])]
+txhousing = txhousing[txhousing.city.isin([&#39;Abilene&#39;,&#39;Amarillo&#39;,&#39;Arlington&#39;,&#39;Brownsville&#39;])]
 ggplot(txhousing,aes(x=&#39;month&#39;,y=&quot;sales&quot;))</code></pre>
-<pre><code>## &lt;ggplot: (52365328)&gt;</code></pre>
+<pre><code>## &lt;ggplot: (54430486)&gt;</code></pre>
 <p><img src="/post/python/plotnine/plotnine_files/figure-html/unnamed-chunk-3-1.png" width="614" /></p>
 </div>
 <div id="adding-layers" class="section level3">
@@ -86,7 +86,9 @@ ggplot(txhousing,aes(x=&#39;month&#39;,y=&quot;sales&quot;))</code></pre>
 <p>A list of other usable <em>geoms</em> can be found <a href="https://plotnine.readthedocs.io/en/stable/api.html#geoms" title="Plotnine documentation">here</a>.</p>
 <pre class="python"><code>ggplot(txhousing,aes(x=&#39;month&#39;,y=&quot;sales&quot;))+ \
   geom_col(fill=&quot;green&quot;)</code></pre>
-<pre><code>## &lt;ggplot: (52602977)&gt;</code></pre>
+<pre><code>## &lt;ggplot: (54667668)&gt;
+## 
+## C:\Users\GEORGE~1\ANACON~1\lib\site-packages\plotnine\layer.py:381: PlotnineWarning: position_stack : Removed 2 rows containing missing values.</code></pre>
 <p><img src="/post/python/plotnine/plotnine_files/figure-html/unnamed-chunk-4-3.png" width="614" /></p>
 </div>
 <div id="adding-labels" class="section level3">
@@ -95,7 +97,9 @@ ggplot(txhousing,aes(x=&#39;month&#39;,y=&quot;sales&quot;))</code></pre>
 <pre class="python"><code>ggplot(txhousing,aes(x=&#39;month&#39;,y=&quot;sales&quot;))+ \
   geom_col(fill=&quot;green&quot;)+\
     labs(x=&quot;Month of Observation&quot;,y=&quot;Sales Observerd&quot;,title=&quot;Sales by month Analysis&quot;)</code></pre>
-<pre><code>## &lt;ggplot: (77999493)&gt;</code></pre>
+<pre><code>## &lt;ggplot: (92684620)&gt;
+## 
+## C:\Users\GEORGE~1\ANACON~1\lib\site-packages\plotnine\layer.py:381: PlotnineWarning: position_stack : Removed 2 rows containing missing values.</code></pre>
 <p><img src="/post/python/plotnine/plotnine_files/figure-html/unnamed-chunk-5-5.png" width="614" /></p>
 </div>
 <div id="beautify-with-theme" class="section level3">
@@ -115,7 +119,9 @@ ggplot(txhousing,aes(x=&#39;month&#39;,y=&quot;sales&quot;))+ \
       axis_title_x = element_text(size=10,color=&quot;orange&quot;),
       rect = element_rect(color=&quot;black&quot;,fill=&quot;gray&quot;),
       plot_background=element_rect(fill=&#39;cyan&#39;))</code></pre>
-<pre><code>## &lt;ggplot: (78132155)&gt;</code></pre>
+<pre><code>## &lt;ggplot: (92835982)&gt;
+## 
+## C:\Users\GEORGE~1\ANACON~1\lib\site-packages\plotnine\layer.py:381: PlotnineWarning: position_stack : Removed 2 rows containing missing values.</code></pre>
 <p><img src="/post/python/plotnine/plotnine_files/figure-html/unnamed-chunk-6-7.png" width="614" /></p>
 </div>
 <div id="configure-with-facets" class="section level3">
@@ -131,8 +137,10 @@ ggplot(txhousing,aes(x=&#39;month&#39;,y=&quot;sales&quot;))+ \
       axis_title_x = element_text(size=10,color=&quot;orange&quot;),
       rect = element_rect(color=&quot;black&quot;,fill=&quot;gray&quot;),
       plot_background=element_rect(fill=&#39;cyan&#39;))+\
-    facet_grid(&#39;city ~ .&#39;,scales=&#39;free&#39;)</code></pre>
-<pre><code>## &lt;ggplot: (78128430)&gt;</code></pre>
+    facet_wrap(&#39; ~ city&#39;)</code></pre>
+<pre><code>## &lt;ggplot: (92899606)&gt;
+## 
+## C:\Users\GEORGE~1\ANACON~1\lib\site-packages\plotnine\layer.py:381: PlotnineWarning: position_stack : Removed 2 rows containing missing values.</code></pre>
 <p><img src="/post/python/plotnine/plotnine_files/figure-html/unnamed-chunk-7-9.png" width="614" /></p>
 <p>From the introductory examples above,its clear that with a sound experience with <code>ggplot2,</code> package one can quickly get up and running with visualization in python since the syntax is purely the same.</p>
 </div>

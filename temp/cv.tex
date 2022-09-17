@@ -1,0 +1,235 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for CV/Resume
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Author:
+% Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%
+%
+% Adapted to be an Rmarkdown template by Mitchell O'Hara-Wild
+% 23 November 2018
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt,a4paper,]{awesome-cv}
+
+% Configure page margins with geometry
+\usepackage{geometry}
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+
+\definecolor{awesome}{HTML}{414141}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+\def\endfirstpage{\newpage}
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+
+\name{Mitchell O'Hara-Wild}{}
+
+\position{Data Scientist}
+\address{Melbourne, Australia}
+
+\email{\href{mailto:mail@mitchelloharawild.com}{\nolinkurl{mail@mitchelloharawild.com}}}
+\github{mitchelloharawild}
+\linkedin{mitchelloharawild}
+\twitter{mitchoharawild}
+
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+% \skype{skype-id}
+% \reddit{reddit-id}
+
+
+\usepackage{booktabs}
+
+\providecommand{\tightlist}{%
+	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%------------------------------------------------------------------------------
+
+
+
+% Pandoc CSL macros
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{2em}
+\newenvironment{CSLReferences}[3] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\honortitlestyle{#1}}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\honordatestyle{#1}}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\begin{document}
+
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+% 2019-02-14 Chris Umphlett - add flexibility to the document name in footer, rather than have it be static Curriculum Vitae
+
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%------------------------------------------------------------------------------
+
+
+
+\hypertarget{current-employment}{%
+\section{Current employment}\label{current-employment}}
+
+\begin{cventries}
+    \cventry{Data scientist}{Nectric}{Melbourne, Australia}{Jan. 2019 - Present}{\begin{cvitems}
+\item Data science consulting projects including spatio-temporal modelling, and large scale forecasting.
+\item Hosting workshops improving data literacy, development, analysis and modelling capabilities.
+\end{cvitems}}
+    \cventry{Research assistant}{Monash University}{Clayton, Australia}{Oct. 2015 - Present}{\begin{cvitems}
+\item Involved in many internal and external data projects of varying size and complexity.
+\item Projects typically feature large scale time series modelling or analysis, cross-sectional modelling and creating tools for improving workflows.
+\item Consulting project clients include: Huawei, Monash University, R Consortium, NSW Chief Scientist office, DiabetesLab and Tennis Australia.
+\end{cvitems}}
+    \cventry{Teaching Associate}{Monash University}{Clayton, Australia}{Mar. 2016 - Present}{\begin{cvitems}
+\item Sessional teaching of university students undertaking Bachelor's and Master's degrees. Specific classes are listed in 'Teaching experience'.
+\end{cvitems}}
+\end{cventries}
+
+\hypertarget{education}{%
+\section{Education}\label{education}}
+
+\begin{cventries}
+    \cventry{BCom (Hons) in Econometrics}{Monash University}{Clayton, Australia}{Mar. 2017 - Nov. 2017}{\begin{cvitems}
+\item Recipient of the Econometrics Honours Memorial Scholarship, Dean's Honour, Dean's Commendation, and best in class for 5 units.
+\item Honours research project was to develop a state space model for quickly forecasting time series with multiple seasonalities.
+\item Studied units include Bayesian and frequentist econometrics, advanced statistical modelling and computational science.
+\end{cvitems}}
+    \cventry{BCom in Econometrics, BSc in Mathematical statistics and Computational Science}{Monash University}{Clayton, Australia}{Mar. 2013 - Nov. 2016}{\begin{cvitems}
+\item Recipient of the Monash Community Leaders Scholarship, International Institute of Forecasters Award, and best in class for 4 units.
+\item Mentor for the Access Monash Ambassador Program (2015 and 2016)
+\item Participant of the Vice-Chancellor's Ancora Imparo Student Leadership Program (2014)
+\item Studied a broad range of units covering many aspects of data science. The three disciplines I majored in explored different perspectives for working with data.
+\end{cvitems}}
+\end{cventries}
+
+\hypertarget{teaching-experience}{%
+\section{Teaching experience}\label{teaching-experience}}
+
+\hypertarget{university-tutoring}{%
+\subsection{University Tutoring}\label{university-tutoring}}
+
+\begin{cvhonors}
+    \cvhonor{}{\textbf{ETC3550/ETC5550}: Applied forecasting (Monash Clayton)}{}{2021 S1}
+    \cvhonor{}{\textbf{ETC5523}: Communicating with Data (Monash Clayton)}{}{2020 S2}
+    \cvhonor{}{\textbf{ETC3550/ETC5550}: Applied forecasting (Monash Clayton)}{}{2020 S1}
+    \cvhonor{}{\textbf{ETC3580}: Advanced statistical modelling (Monash Clayton)}{}{2019 S2}
+    \cvhonor{}{\textbf{ETC1010}: Data modelling and computing (Monash Clayton)}{}{2019 S2}
+    \cvhonor{}{\textbf{ETC1010}: Data modelling and computing (Monash Clayton)}{}{2019 S1}
+    \cvhonor{}{\textbf{ETC3550/ETC5550}: Applied forecasting for business and economics (Monash Clayton)}{}{2019 S1}
+    \cvhonor{}{\textbf{ETC1010}: Data modelling and computing (Monash Clayton)}{}{2018 S2}
+    \cvhonor{}{\textbf{ETC3580}: Advanced statistical modelling (Monash Clayton)}{}{2018 S2}
+    \cvhonor{}{\textbf{ETF3231/ETF5231}: Business forecasting (Monash Caulfield)}{}{2018 S1}
+    \cvhonor{}{\textbf{ETC1010}: Data modelling and computing (Monash Clayton)}{}{2017 S2}
+    \cvhonor{}{\textbf{ETF3231/ETF5231}: Business forecasting (Monash Caulfield)}{}{2017 S1}
+    \cvhonor{}{\textbf{ETF2700}: Mathematics for business (Monash Caulfield)}{}{2016 S2}
+    \cvhonor{}{\textbf{ETF3231/ETF5231}: Business forecasting (Monash Caulfield)}{}{2016 S1}
+\end{cvhonors}
+
+\newpage
+
+\hypertarget{industry-workshops}{%
+\subsection{Industry Workshops}\label{industry-workshops}}
+
+\begin{cvhonors}
+    \cvhonor{}{\textbf{Tidy Time Series and Forecasting in R}: Teaching assistant (rstudio::conf, USA) \newline Two day workshop with Rob Hyndman on forecasting using tidyverse workflows.}{}{Jan. 2020\newline}
+    \cvhonor{}{\textbf{Interactive documents with Shiny}: Instructor (CSIRO, Australia) \newline Two day intermediate workshop on developing of shiny applications.}{}{Nov. 2019\newline}
+    \cvhonor{}{\textbf{Data Wrangling}: Instructor (Monash University, Australia) \newline A short workshop in the 'R Workshops for Beginners' series on using tidyr and dplyr to wrangle data.}{}{Sep. 2019\newline}
+    \cvhonor{}{\textbf{Tidyverse developer day}: Helper (RStudio, France) \newline A one day developer day where I helped R users resolve issues on tidyverse packages.}{}{Jul. 2019\newline}
+    \cvhonor{}{\textbf{High-dimensional time series analysis}: Teaching assistant (ISI WSC, Malaysia) \newline One day short course with Rob Hyndman for analysing and forecasting large collections of time series.}{}{Aug. 2019\newline}
+    \cvhonor{}{\textbf{The grammar of animation}: Instructor (Monash University, Australia) \newline A short workshop for NUMBAT group on creating animated graphics in R with the gganimate package.}{}{Mar. 2019\newline}
+    \cvhonor{}{\textbf{Master R Developer Workshop}: Teaching assistant (RStudio, Australia) \newline A two day workshop with Hadley Wicham on programming with R and developing R packages.}{}{Dec. 2016\newline}
+\end{cvhonors}
+
+\hypertarget{software-development}{%
+\section{Software development}\label{software-development}}
+
+\begin{cvhonors}
+    \cvhonor{}{\textbf{distributional}: Lead developer \newline Vectorised distribution objects with methods for manipulating and computing on probability distributions.}{}{2020\newline}
+    \cvhonor{}{\textbf{fable}: Lead developer \newline A collection of time series models for use in a tidyverse workflow.}{}{2019\newline}
+    \cvhonor{}{\textbf{fable.prophet}: Lead developer \newline Extension package implementing the prophet forecasting procedure for fable.}{}{2019\newline}
+    \cvhonor{}{\textbf{feasts}: Lead developer \newline A collection of features, decompositions, statistics and graphics tools for the analysing tidy time series data.}{}{2019\newline}
+    \cvhonor{}{\textbf{fabletools}: Lead developer \newline Provides common utilities for the fable forecasting framework, allows users to extend fable with new models.}{}{2019\newline}
+    \cvhonor{}{\textbf{tsibbledata}: Lead developer \newline Diverse datasets in a tidy time series data structure (tsibble). Useful in examples of tidy time series analysis.}{}{2019\newline}
+    \cvhonor{}{\textbf{tsfeatures}: Author \newline Various methods for extracting features from time series data.}{}{2019\newline}
+    \cvhonor{}{\textbf{tsibble}: Contributor \newline Tidy temporal data structures and tools. The data for the tidy time series collection of packages.}{}{2018\newline}
+    \cvhonor{}{\textbf{vitae}: Lead developer \newline Dynamically generate a Résumé or CV using R Markdown. This CV is created using code with that package!}{}{2018\newline}
+    \cvhonor{}{\textbf{fasster}: Lead developer \newline Implementation of the FASSTER model for forecasting complex multiple seasonal patterns.}{}{2017\newline}
+    \cvhonor{}{\textbf{icon}: Lead developer \newline Embed SVG icons in R documents such as slides, reports and apps.}{}{2017\newline}
+    \cvhonor{}{\textbf{taipan}: Lead developer \newline Generates shiny apps for annotating image data, which is useful for training machine learning models.}{}{2018\newline}
+    \cvhonor{}{\textbf{ggquiver}: Lead developer \newline Extends ggplot2 for displaying vector fields on plots.}{}{2017\newline}
+    \cvhonor{}{\textbf{forecast}: Author \newline Methods and tools analysing univariate time series data and producing model-based forecasts.}{}{2015\newline}
+\end{cvhonors}
+
+\newpage
+
+\hypertarget{presentations}{%
+\section{Presentations}\label{presentations}}
+
+\begin{cvhonors}
+    \cvhonor{}{\textbf{Forecasting with multiple seasonality}: Methods and techniques to multiple seasonal forecasting in R \newline \url{https://slides.mitchelloharawild.com/nhs2020/}}{}{2020}
+    \cvhonor{}{\textbf{Probabilistic cross-temporal hierarchies}: Recent developments of temporal reconciliation in fable. \newline \url{https://slides.mitchelloharawild.com/isf2020/}}{}{2020}
+    \cvhonor{}{\textbf{Flexible futures for fable functionality}: Gradual introduction to tidy forecasting with fable. Flexibility is demonstrated with combination modelling and package extensibilitiy. \newline \url{https://slides.mitchelloharawild.com/fable-tfeam/}}{}{2019}
+    \cvhonor{}{\textbf{Flexible futures for fable functionality}: Reconciled forecasting of many time series with model combinations. \newline \url{https://slides.mitchelloharawild.com/isf2019/}}{}{2019}
+    \cvhonor{}{\textbf{Tidy forecasting in R}: Discussion of recent developments to the fable framework. \newline \url{https://slides.mitchelloharawild.com/fable-tfeam/}}{}{2018}
+    \cvhonor{}{\textbf{Forecasting multiple seasonality with state switching}: The FASSTER model with the fable framework. \newline \url{https://slides.mitchelloharawild.com/user2018}}{}{2018}
+    \cvhonor{}{\textbf{Models for forecasting multiple seasonality}: An introduction to the FASSTER model. \newline \url{https://slides.mitchelloharawild.com/melburn17/}}{}{2017}
+\end{cvhonors}
+
+
+
+\end{document}

@@ -18,6 +18,6 @@ type: docs  # Do not modify.
 menu:
   example:
     name: YourParentID
-    # parent: YourParentID
+    parent: YourParentID
     weight: 1
 ---

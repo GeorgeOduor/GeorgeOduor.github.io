@@ -5,6 +5,9 @@ date:  "2021-07-15T00:00:00Z"
 categories: ["Python"]
 tags: ["Python", "Machine Learning","Unsupervised Learning","Clustering"]
 img : 'oop.png'
+editor_options: 
+  markdown: 
+    wrap: sentence
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
@@ -12,7 +15,8 @@ img : 'oop.png'
 
 <div id="what-is-clustering" class="section level2">
 <h2>What is Clustering?</h2>
-<p>Clustering means finding clusters in a dataset unsupervised. Unsupervised in this case means that there are no predictor and response variables.</p>
+<p>Clustering means finding clusters in a dataset unsupervised.
+Unsupervised in this case means that there are no predictor and response variables.</p>
 <p>What we are going to learn here.</p>
 <ul>
 <li>What is Clustering</li>
@@ -95,43 +99,57 @@ Classification predicts categorical class labels which mean assigning instances 
 Hierarchical clustering algorithms build a hierarchy of clusters where each node is a cluster consists of the clusters of its daughter nodes.
 Hierarchical clustering strategies generally fall into two types:</p>
 <ol style="list-style-type: decimal">
-<li><p><strong>Divisive (Top-down approach)</strong>
-Start with all observations and break it down into smaller pieces.</p></li>
-<li><p><strong>Agglomerative(Bottom-up approach)</strong>
-Each observation starts the cluster and pairs up as they move the hierarchy. Agglomeration simply means to collect things up. The agglomerative approach is very popular and works in a similar way which humans think.</p></li>
+<li><p><strong>Divisive (Top-down approach)</strong> Start with all observations and break it down into smaller pieces.</p></li>
+<li><p><strong>Agglomerative(Bottom-up approach)</strong> Each observation starts the cluster and pairs up as they move the hierarchy.
+Agglomeration simply means to collect things up.
+The agglomerative approach is very popular and works in a similar way which humans think.</p></li>
 </ol>
 </div>
 <div id="understanding-a-dendrogram-and-the-agglomerative-approach." class="section level2">
 <h2><strong>Understanding a dendrogram and the agglomerative approach.</strong></h2>
 <p><em>So how does it work?</em></p>
 <p>This method builds a hierarchy from individual elements by progressively merging clusters.</p>
-<p>In a dendrogram, each leaf represents one of the data points. As we move up the tree some observations fuse together to form branches.</p>
-<p>These observations that fuse together are very similar to each other or close to one another. Further up the tree, branches fuse with other branches or observations.</p>
-<p>The height of the fusions indicates how the two observations or clusters are different. Let me plot a simple plot of face data here to see how this comes about.</p>
+<p>In a dendrogram, each leaf represents one of the data points.
+As we move up the tree some observations fuse together to form branches.</p>
+<p>These observations that fuse together are very similar to each other or close to one another.
+Further up the tree, branches fuse with other branches or observations.</p>
+<p>The height of the fusions indicates how the two observations or clusters are different.
+Let me plot a simple plot of face data here to see how this comes about.</p>
 <div class="figure">
 <img src="1_ct133MO5QTvyhPHtZpx0Sw.png" alt="" />
 <p class="caption">aglomerative</p>
 </div>
 <p>In the plot to the left, we can see the points plotted in a 2D scatter plot, and a dendrogram of the same is done in the second plot.</p>
-<p>Let’s understand how the program makes the dendrogram in the right figure. Assume the points represent cities in Kenya and we want to cluster them based on their distance from each other. Distance between the points can be calculated by many methods including euclidian distance.</p>
-<p>Looking at the scatter plot on the left side points 3 and 4 are the closest therefore they will be fused together and they will form a cluster. This leaves us with n -1 =7 clusters. The distance between them is represented by the height of the cluster formed.</p>
-<p>By checking the distance between points 1 and 2 relative to other points we find they are the closest so we will make a cluster with them. Using the first cluster between 3 and 4 we can see that it’s closer to five than the cluster between 1 and 2 so so we will fuse this cluster with point 5.</p>
+<p>Let’s understand how the program makes the dendrogram in the right figure.
+Assume the points represent cities in Kenya and we want to cluster them based on their distance from each other.
+Distance between the points can be calculated by many methods including euclidian distance.</p>
+<p>Looking at the scatter plot on the left side points 3 and 4 are the closest therefore they will be fused together and they will form a cluster.
+This leaves us with n -1 =7 clusters.
+The distance between them is represented by the height of the cluster formed.</p>
+<p>By checking the distance between points 1 and 2 relative to other points we find they are the closest so we will make a cluster with them.
+Using the first cluster between 3 and 4 we can see that it’s closer to five than the cluster between 1 and 2 so so we will fuse this cluster with point 5.</p>
 <p>This process continues progressively up the tree to make the dendrogram.</p>
 </div>
 <div id="identifying-the-clusters-based-on-the-dendrogram." class="section level2">
 <h2>Identifying the clusters based on the dendrogram.</h2>
-<p>So how do we identify the clusters based on this dendrogram? To get the optimal number of clusters, the dendrogram is cut at a point where the vertical lines are highest and not crossing any horizontal line.</p>
+<p>So how do we identify the clusters based on this dendrogram?
+To get the optimal number of clusters, the dendrogram is cut at a point where the vertical lines are highest and not crossing any horizontal line.</p>
 </div>
 <div id="hierarchical-algorithm." class="section level2">
 <h2>Hierarchical Algorithm.</h2>
 <p>After Understanding the concept, let’s see the algorithm on how to build this in simple and easy to understand steps.
-1. Make each datapoint a single point cluster; from N clusters
-1. Take two closest data points and make them one cluster; forms N-1 clusters.
-1. Take the two closest clusters and make them one cluster; forms N-2 Clusters
-1. Repeat step 3 until there is one cluster remaining.
-1. Defining the Dissimilarity measure between two points.</p>
-<p>A question arises on how we chose which cluster to be fused with which. In simple terms how did we decide on the dissimilarity between two clusters?</p>
-<p>This problem is easily solved by the concept of the linkage which defines the dissimilarity between two groups of observations. There are 4 main types of linkages namely:</p>
+1.
+Make each datapoint a single point cluster; from N clusters 1.
+Take two closest data points and make them one cluster; forms N-1 clusters.
+1.
+Take the two closest clusters and make them one cluster; forms N-2 Clusters 1.
+Repeat step 3 until there is one cluster remaining.
+1.
+Defining the Dissimilarity measure between two points.</p>
+<p>A question arises on how we chose which cluster to be fused with which.
+In simple terms how did we decide on the dissimilarity between two clusters?</p>
+<p>This problem is easily solved by the concept of the linkage which defines the dissimilarity between two groups of observations.
+There are 4 main types of linkages namely:</p>
 <ol style="list-style-type: decimal">
 <li><strong>Complete linkage:</strong> takes the largest of the dissimilarities between the observations in two clusters after computing all pairwise dissimilarities.</li>
 <li><strong>Average linkage</strong> takes the average of the dissimilarities between the observations in two clusters after computing all pairwise dissimilarities.</li>

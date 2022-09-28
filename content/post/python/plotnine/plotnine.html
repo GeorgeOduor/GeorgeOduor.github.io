@@ -74,7 +74,7 @@ txhousing = txhousing.sort_values(&#39;month&#39;)
 txhousing.month = txhousing.month.astype(object)
 txhousing = txhousing[txhousing.city.isin([&#39;Abilene&#39;,&#39;Amarillo&#39;,&#39;Arlington&#39;,&#39;Brownsville&#39;])]
 ggplot(txhousing,aes(x=&#39;month&#39;,y=&quot;sales&quot;))</code></pre>
-<pre><code>## &lt;ggplot: (54430486)&gt;</code></pre>
+<pre><code>## &lt;ggplot: (54442780)&gt;</code></pre>
 <p><img src="/post/python/plotnine/plotnine_files/figure-html/unnamed-chunk-3-1.png" width="614" /></p>
 </div>
 <div id="adding-layers" class="section level3">
@@ -83,7 +83,7 @@ ggplot(txhousing,aes(x=&#39;month&#39;,y=&quot;sales&quot;))</code></pre>
 <p>A list of other usable <em>geoms</em> can be found <a href="https://plotnine.readthedocs.io/en/stable/api.html#geoms" title="Plotnine documentation">here</a>.</p>
 <pre class="python"><code>ggplot(txhousing,aes(x=&#39;month&#39;,y=&quot;sales&quot;))+ \
   geom_col(fill=&quot;green&quot;)</code></pre>
-<pre><code>## &lt;ggplot: (54446216)&gt;
+<pre><code>## &lt;ggplot: (54679703)&gt;
 ## 
 ## C:\Users\GEORGE~1\ANACON~1\lib\site-packages\plotnine\layer.py:381: PlotnineWarning: position_stack : Removed 2 rows containing missing values.</code></pre>
 <p><img src="/post/python/plotnine/plotnine_files/figure-html/unnamed-chunk-4-3.png" width="614" /></p>
@@ -94,7 +94,7 @@ ggplot(txhousing,aes(x=&#39;month&#39;,y=&quot;sales&quot;))</code></pre>
 <pre class="python"><code>ggplot(txhousing,aes(x=&#39;month&#39;,y=&quot;sales&quot;))+ \
   geom_col(fill=&quot;green&quot;)+\
     labs(x=&quot;Month of Observation&quot;,y=&quot;Sales Observerd&quot;,title=&quot;Sales by month Analysis&quot;)</code></pre>
-<pre><code>## &lt;ggplot: (20828904)&gt;
+<pre><code>## &lt;ggplot: (84296024)&gt;
 ## 
 ## C:\Users\GEORGE~1\ANACON~1\lib\site-packages\plotnine\layer.py:381: PlotnineWarning: position_stack : Removed 2 rows containing missing values.</code></pre>
 <p><img src="/post/python/plotnine/plotnine_files/figure-html/unnamed-chunk-5-5.png" width="614" /></p>
@@ -104,7 +104,7 @@ ggplot(txhousing,aes(x=&#39;month&#39;,y=&quot;sales&quot;))</code></pre>
 <p>Theme is used to make necessary changes that will enhance the look of the plot.There are standard themes available but one can also use a custom theme.</p>
 <p>To use themes,its recommenced to import the <code>themes</code> module form <code>plotnine.</code></p>
 <p>In the script below <code>theme_matplotlib</code> has been applied together with a custom theme.</p>
-<pre><code>## &lt;ggplot: (20794501)&gt;
+<pre><code>## &lt;ggplot: (84468628)&gt;
 ## 
 ## C:\Users\GEORGE~1\ANACON~1\lib\site-packages\plotnine\layer.py:381: PlotnineWarning: position_stack : Removed 2 rows containing missing values.</code></pre>
 <p><img src="/post/python/plotnine/plotnine_files/figure-html/unnamed-chunk-6-7.png" width="614" /></p>
@@ -123,11 +123,18 @@ ggplot(txhousing,aes(x=&#39;month&#39;,y=&quot;sales&quot;))</code></pre>
       rect = element_rect(color=&quot;black&quot;,fill=&quot;gray&quot;),
       plot_background=element_rect(fill=&#39;cyan&#39;))+\
     facet_wrap(&#39; ~ city&#39;)</code></pre>
-<pre><code>## &lt;ggplot: (20997554)&gt;
+<pre><code>## &lt;ggplot: (84462719)&gt;
 ## 
 ## C:\Users\GEORGE~1\ANACON~1\lib\site-packages\plotnine\layer.py:381: PlotnineWarning: position_stack : Removed 2 rows containing missing values.</code></pre>
 <p><img src="/post/python/plotnine/plotnine_files/figure-html/unnamed-chunk-7-9.png" width="614" /></p>
 <p>From the introductory examples above,its clear that with a sound experience with <code>ggplot2,</code> package one can quickly get up and running with visualization in python since the syntax is purely the same.</p>
+<script src="https://utteranc.es/client.js"
+        repo="GeorgeOduor/GeorgeOduor.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
 </div>
 </div>
 </div>

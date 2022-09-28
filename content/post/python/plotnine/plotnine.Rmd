@@ -133,6 +133,7 @@ ggplot(txhousing,aes(x='month',y="sales"))+ \
 
 From the introductory examples above,its clear that with a sound experience with `ggplot2,` package one can quickly get up and running with visualization in python since the syntax is purely the same.
 
+```{=html}
 <script src="https://utteranc.es/client.js"
         repo="GeorgeOduor/GeorgeOduor.github.io"
         issue-term="pathname"
@@ -140,3 +141,4 @@ From the introductory examples above,its clear that with a sound experience with
         crossorigin="anonymous"
         async>
 </script>
+```

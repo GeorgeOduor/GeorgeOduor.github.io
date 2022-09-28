@@ -150,3 +150,14 @@ The two decisions above are very fragile and should be made with great care as t
 See hierarchical clustering project in action here with python.
 
 Thanks for reading, any comment and or suggestions are welcome.
+
+
+<script src="https://utteranc.es/client.js"
+        repo="GeorgeOduor/GeorgeOduor.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+

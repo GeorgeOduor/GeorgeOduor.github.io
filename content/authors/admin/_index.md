@@ -1,6 +1,6 @@
 ---
 authors:
-- admin
+- George Oduor
 avatar_image: 'full2.jpg'
 bio: My main areas of interest in data science  include Fintech,Business development and AI driven solutions.
 btn:

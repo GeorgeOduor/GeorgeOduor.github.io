@@ -1,0 +1,140 @@
+---
+title: "Use ggplot2 Syntax in Python"
+author: "George Oduor"
+date:  "2022-09-16T00:00:00Z"
+categories: ["Python"]
+tags: ["Python","Data Visualisation"]
+img : 'images/paste-1E86ED47.png'
+output: 
+  rmdformats::material:
+    toc : true
+share: false
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p><a href="https://www.r-project.org/">R</a> language has a rich graphical tool used for producing standard professional plots called <code>ggplot2.</code> For someone coming from <em>R</em> to <em>python</em>,learning python’s graphical tools such as <code>matplotlib</code> and <code>seaborn</code> can be quite intimidating.For this reason,in this blog I will illustrate how,armed with R knowledge,one can proceed and create stunning plots in python without much needing the python knowledge.</p>
+<div id="contents" class="section level1">
+<h1>Contents</h1>
+<ul>
+<li>Plotnine</li>
+<li>Data set used</li>
+<li>Plotting
+<ul>
+<li><p>Setting up your environment</p></li>
+<li><p>Adding Layers</p></li>
+<li><p>Adding Labels</p></li>
+<li><p>Beautify with themes</p></li>
+<li><p>Configure with facets</p></li>
+</ul></li>
+</ul>
+<div id="plotnine" class="section level2">
+<h2>Plotnine</h2>
+<p>Plotnine is a python package that uses the <em>grammar of graphics</em> philosophy like that of <em>ggplot2</em> in the R language.This is why implementing it will be simple and straight forward for new python users.</p>
+<p>In order to install plotnine in your system you need to run:</p>
+<p><code>pip install plotnine</code></p>
+</div>
+<div id="data-set" class="section level2">
+<h2>Data set</h2>
+<p>The data set used in this illustration is the Texas housing data provided by the TAMU real estate center</p>
+<pre class="python"><code>import pandas as pd
+import numpy as np
+from plotnine import *
+from plotnine.data import txhousing</code></pre>
+</div>
+<div id="quick-overview-of-the-data-set" class="section level2">
+<h2>Quick Overview of the data set</h2>
+<pre class="python"><code>txhousing.info()</code></pre>
+<pre><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+## RangeIndex: 8602 entries, 0 to 8601
+## Data columns (total 9 columns):
+##  #   Column     Non-Null Count  Dtype  
+## ---  ------     --------------  -----  
+##  0   city       8602 non-null   object 
+##  1   year       8602 non-null   int64  
+##  2   month      8602 non-null   int64  
+##  3   sales      8034 non-null   float64
+##  4   volume     8034 non-null   float64
+##  5   median     7986 non-null   float64
+##  6   listings   7178 non-null   float64
+##  7   inventory  7135 non-null   float64
+##  8   date       8602 non-null   float64
+## dtypes: float64(6), int64(2), object(1)
+## memory usage: 605.0+ KB</code></pre>
+<p>From the out put above,the dataset contains 8 variables ,one variable is categorical while the rest are numeric.Other properties show that the data set doesn’t contain any missing value and has 8602 observations.</p>
+</div>
+<div id="plotting" class="section level2">
+<h2>Plotting</h2>
+<div id="setting-up-your-environment" class="section level3">
+<h3>Setting up your environment</h3>
+<p>Just like in R’s <code>ggplot</code>,in order to make a plot you must specify the data set you’re intending to visualize it’s variables then specify the aesthetics.The aesthetics in this case are the variables X and Y.</p>
+<pre class="python"><code># few house keeping scripts
+txhousing = txhousing.sort_values(&#39;month&#39;)
+txhousing.month = txhousing.month.astype(object)
+txhousing = txhousing[txhousing.city.isin([&#39;Abilene&#39;,&#39;Amarillo&#39;,&#39;Arlington&#39;,&#39;Brownsville&#39;])]
+ggplot(txhousing,aes(x=&#39;month&#39;,y=&quot;sales&quot;))</code></pre>
+<pre><code>## &lt;ggplot: (54430492)&gt;</code></pre>
+<p><img src="/post/python/plotnine/plotnine_files/figure-html/unnamed-chunk-3-1.png" width="614" /></p>
+</div>
+<div id="adding-layers" class="section level3">
+<h3>Adding Layers</h3>
+<p>Layers also known as geoms are added on top of the main base setup.In the code below <code>geom_col</code> layer is added to the base plot</p>
+<p>A list of other usable <em>geoms</em> can be found <a href="https://plotnine.readthedocs.io/en/stable/api.html#geoms" title="Plotnine documentation">here</a>.</p>
+<pre class="python"><code>ggplot(txhousing,aes(x=&#39;month&#39;,y=&quot;sales&quot;))+ \
+  geom_col(fill=&quot;green&quot;)</code></pre>
+<pre><code>## &lt;ggplot: (54667319)&gt;
+## 
+## C:\Users\GEORGE~1\ANACON~1\lib\site-packages\plotnine\layer.py:381: PlotnineWarning: position_stack : Removed 2 rows containing missing values.</code></pre>
+<p><img src="/post/python/plotnine/plotnine_files/figure-html/unnamed-chunk-4-3.png" width="614" /></p>
+</div>
+<div id="adding-labels" class="section level3">
+<h3>Adding Labels</h3>
+<p>Labels help in communicating the story of data visualization process.The labels includes title,x and y axis texts.To achieve this,the <code>labs</code> layer is used .</p>
+<pre class="python"><code>ggplot(txhousing,aes(x=&#39;month&#39;,y=&quot;sales&quot;))+ \
+  geom_col(fill=&quot;green&quot;)+\
+    labs(x=&quot;Month of Observation&quot;,y=&quot;Sales Observerd&quot;,title=&quot;Sales by month Analysis&quot;)</code></pre>
+<pre><code>## &lt;ggplot: (84302032)&gt;
+## 
+## C:\Users\GEORGE~1\ANACON~1\lib\site-packages\plotnine\layer.py:381: PlotnineWarning: position_stack : Removed 2 rows containing missing values.</code></pre>
+<p><img src="/post/python/plotnine/plotnine_files/figure-html/unnamed-chunk-5-5.png" width="614" /></p>
+</div>
+<div id="beautify-with-theme" class="section level3">
+<h3>Beautify with theme</h3>
+<p>Theme is used to make necessary changes that will enhance the look of the plot.There are standard themes available but one can also use a custom theme.</p>
+<p>To use themes,its recommenced to import the <code>themes</code> module form <code>plotnine.</code></p>
+<p>In the script below <code>theme_matplotlib</code> has been applied together with a custom theme.</p>
+<pre><code>## &lt;ggplot: (84302523)&gt;
+## 
+## C:\Users\GEORGE~1\ANACON~1\lib\site-packages\plotnine\layer.py:381: PlotnineWarning: position_stack : Removed 2 rows containing missing values.</code></pre>
+<p><img src="/post/python/plotnine/plotnine_files/figure-html/unnamed-chunk-6-7.png" width="614" /></p>
+</div>
+<div id="configure-with-facets" class="section level3">
+<h3>Configure with facets</h3>
+<p>Say we want to compare the month on month sales by countries.Faceting come in handy for achieving this.</p>
+<pre class="python"><code>ggplot(txhousing,aes(x=&#39;month&#39;,y=&quot;sales&quot;))+ \
+  geom_col(fill=&quot;green&quot;)+\
+    labs(x=&quot;Month of Observation&quot;,
+    y=&quot;Sales Observerd&quot;,title=&quot;Sales by month Analysis&quot;)+\
+    theme_matplotlib()+\
+    theme(
+      plot_title=element_text(size=12, face=&quot;bold&quot;,color=&quot;red&quot;),
+      axis_title_x = element_text(size=10,color=&quot;orange&quot;),
+      rect = element_rect(color=&quot;black&quot;,fill=&quot;gray&quot;),
+      plot_background=element_rect(fill=&#39;cyan&#39;))+\
+    facet_wrap(&#39; ~ city&#39;)</code></pre>
+<pre><code>## &lt;ggplot: (84312793)&gt;
+## 
+## C:\Users\GEORGE~1\ANACON~1\lib\site-packages\plotnine\layer.py:381: PlotnineWarning: position_stack : Removed 2 rows containing missing values.</code></pre>
+<p><img src="/post/python/plotnine/plotnine_files/figure-html/unnamed-chunk-7-9.png" width="614" /></p>
+<p>From the introductory examples above,its clear that with a sound experience with <code>ggplot2,</code> package one can quickly get up and running with visualization in python since the syntax is purely the same.</p>
+<script src="https://utteranc.es/client.js"
+        repo="GeorgeOduor/GeorgeOduor.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+</div>
+</div>

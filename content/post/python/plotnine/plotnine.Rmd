@@ -1,0 +1,144 @@
+---
+title: "Use ggplot2 Syntax in Python"
+author: "George Oduor"
+date:  "2022-09-16T00:00:00Z"
+categories: ["Python"]
+tags: ["Python","Data Visualisation"]
+img : 'images/paste-1E86ED47.png'
+output: 
+  rmdformats::material:
+    toc : true
+share: false
+---
+
+[R](https://www.r-project.org/) language has a rich graphical tool used for producing standard professional plots called `ggplot2.` For someone coming from *R* to *python*,learning python's graphical tools such as `matplotlib` and `seaborn` can be quite intimidating.For this reason,in this blog I will illustrate how,armed with R knowledge,one can proceed and create stunning plots in python without much needing the python knowledge.
+
+# Contents
+
+-   Plotnine
+-   Data set used
+-   Plotting
+    -   Setting up your environment
+
+    -   Adding Layers
+
+    -   Adding Labels
+
+    -   Beautify with themes
+
+    -   Configure with facets
+
+## Plotnine
+
+Plotnine is a python package that uses the *grammar of graphics* philosophy like that of *ggplot2* in the R language.This is why implementing it will be simple and straight forward for new python users.
+
+In order to install plotnine in your system you need to run:
+
+`pip install plotnine`
+
+## Data set
+
+The data set used in this illustration is the Texas housing data provided by the TAMU real estate center
+
+```{python}
+import pandas as pd
+import numpy as np
+from plotnine import *
+from plotnine.data import txhousing
+```
+
+## Quick Overview of the data set
+
+```{python}
+txhousing.info()
+```
+
+From the out put above,the dataset contains 8 variables ,one variable is categorical while the rest are numeric.Other properties show that the data set doesn't contain any missing value and has 8602 observations.
+
+## Plotting
+
+### Setting up your environment
+
+Just like in R's `ggplot`,in order to make a plot you must specify the data set you're intending to visualize it's variables then specify the aesthetics.The aesthetics in this case are the variables X and Y.
+
+```{python}
+# few house keeping scripts
+txhousing = txhousing.sort_values('month')
+txhousing.month = txhousing.month.astype(object)
+txhousing = txhousing[txhousing.city.isin(['Abilene','Amarillo','Arlington','Brownsville'])]
+ggplot(txhousing,aes(x='month',y="sales"))
+```
+
+### Adding Layers
+
+Layers also known as geoms are added on top of the main base setup.In the code below `geom_col` layer is added to the base plot
+
+A list of other usable *geoms* can be found [here](https://plotnine.readthedocs.io/en/stable/api.html#geoms "Plotnine documentation").
+
+```{python}
+ggplot(txhousing,aes(x='month',y="sales"))+ \
+  geom_col(fill="green")
+```
+
+### Adding Labels
+
+Labels help in communicating the story of data visualization process.The labels includes title,x and y axis texts.To achieve this,the `labs` layer is used .
+
+```{python}
+ggplot(txhousing,aes(x='month',y="sales"))+ \
+  geom_col(fill="green")+\
+    labs(x="Month of Observation",y="Sales Observerd",title="Sales by month Analysis")
+```
+
+### Beautify with theme
+
+Theme is used to make necessary changes that will enhance the look of the plot.There are standard themes available but one can also use a custom theme.
+
+To use themes,its recommenced to import the `themes` module form `plotnine.`
+
+In the script below `theme_matplotlib` has been applied together with a custom theme.
+
+```{python ,echo=F}
+from plotnine.themes import *
+
+ggplot(txhousing,aes(x='month',y="sales"))+ \
+  geom_col(fill="green")+\
+    labs(x="Month of Observation",
+    y="Sales Observerd",title="Sales by month Analysis")+\
+    theme_matplotlib()+\
+    theme(
+      plot_title=element_text(size=12, face="bold",color="red"),
+      axis_title_x = element_text(size=10,color="orange"),
+      rect = element_rect(color="black",fill="gray"),
+      plot_background=element_rect(fill='cyan'))
+```
+
+### Configure with facets
+
+Say we want to compare the month on month sales by countries.Faceting come in handy for achieving this.
+
+```{python}
+ggplot(txhousing,aes(x='month',y="sales"))+ \
+  geom_col(fill="green")+\
+    labs(x="Month of Observation",
+    y="Sales Observerd",title="Sales by month Analysis")+\
+    theme_matplotlib()+\
+    theme(
+      plot_title=element_text(size=12, face="bold",color="red"),
+      axis_title_x = element_text(size=10,color="orange"),
+      rect = element_rect(color="black",fill="gray"),
+      plot_background=element_rect(fill='cyan'))+\
+    facet_wrap(' ~ city')
+```
+
+From the introductory examples above,its clear that with a sound experience with `ggplot2,` package one can quickly get up and running with visualization in python since the syntax is purely the same.
+
+```{=html}
+<script src="https://utteranc.es/client.js"
+        repo="GeorgeOduor/GeorgeOduor.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+```

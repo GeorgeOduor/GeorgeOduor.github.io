@@ -38,6 +38,12 @@
     #parent = "dropdown"
 
 [[main]]
+    # name = "Tutorials"
+    # url = "tutorials/"
+    # weight = 50
+    # parent = "dropdown"
+
+[[main]]
   name = "Contact"
   url = "#contact"
   weight = 60

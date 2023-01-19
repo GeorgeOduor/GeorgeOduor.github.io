@@ -1,8 +1,8 @@
 ---
 authors:
-- admin
+- George Oduor
 avatar_image: 'full2.jpg'
-bio: My main areas of interest in data science  include Fintech,Business development and AI driven.
+bio: My main areas of interest in data science  include Fintech,Business development and AI driven solutions.
 btn:
 - label: Download My Resume
   url: https://sourcethemes.com/academic/docs/install/
@@ -24,7 +24,7 @@ education:
   - course: Machine Learning with R
     institution: Cognitive Class
     year: 2019 
-email: george.wamay@gmail.com
+email: george.wamaya@gmail.com
 interests:
 - Machine Learning and Artificial Intelligence
 - Statistics
@@ -36,7 +36,7 @@ name: George Oduor
 organizations:
 - name: Maisha Bank
   url: maishabank.com
-role: Digital Chanells officer
+role: Digital Channels officer
 social:
 - icon: envelope
   icon_pack: fas

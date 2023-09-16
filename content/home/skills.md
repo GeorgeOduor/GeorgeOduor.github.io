@@ -30,7 +30,7 @@ subtitle = "I AM REALLY GOOD AT THE FOLLOWING TECHNICAL SKILLS."
   icon = "code"
   icon_pack = "fas"
   name = "Programing and automation"
-  parcent = "70%"
+  parcent = "90%"
   
 [[feature]]
   icon = "searchengin"

@@ -8,7 +8,7 @@ weight = 10  # Order that this section will appear.
 title = "George"
 
 # Hero image (optional). Enter filename of an image in the `static/img/` folder.
-hero_media = "oduor.jpg"
+hero_media = "hero.gif"
 
 [design.background]
   # Apply a background color, gradient, or image.

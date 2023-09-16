@@ -58,8 +58,7 @@ phone = "+254 711894704"
 address = "Chester House,2nd Floor"
 
 # Office hours: use `<br>` to insert a line break, or set to "" to remove office hours
-office_hours = """Monday to<br>
-                  Saturday , 8:00 to 5:30 """
+office_hours = """Monday to <br> Saturday , 8:00 to 5:30 """
 
 # Enter an optional link for booking appointments (e.g. calendly.com).
 appointment_url = "https://calendly.com"

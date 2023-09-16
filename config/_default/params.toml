@@ -6,7 +6,7 @@ microsoft_clarity = "ewf"
 
 # Color theme.
 #   Choose from `default`, `ocean`, `forest`, `dark`, `apogee`, `1950s`, `coffee`, `cupcake`, `strawberry`.
-color_theme = "forest"
+color_theme = "ocean"
 # Enable users to switch between day and night mode?
 day_night = true
 
@@ -15,7 +15,8 @@ day_night = true
 font = "classic"
 
 # Description for social sharing and search engines. If undefined, superuser role is used in place.
-description = 'I am a passionate Data Scientist with interest in applications of Machine Learning and Artificial intelligence in Evidence based Business analytics and Innovation. I love making data driven applications in Python and R.'
+description = "I'm an enthusiastic Data Scientist, with a keen focus on applying Machine Learning and Artificial Intelligence to drive Evidence-based Business Analytics and Innovation. My passion lies in crafting data-driven applications using both Python and R."
+
 # Default image for social sharing and search engines. Place image in `static/img/` folder and specify image name here.
 sharing_image = "oduor.jpg"
 

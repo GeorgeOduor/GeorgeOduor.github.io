@@ -8,7 +8,7 @@ weight = 10  # Order that this section will appear.
 title = "George"
 
 # Hero image (optional). Enter filename of an image in the `static/img/` folder.
-hero_media = "oduor.jpg"
+hero_media = "hero.gif"
 
 [design.background]
   # Apply a background color, gradient, or image.
@@ -42,5 +42,6 @@ hero_media = "oduor.jpg"
   label = "Contact me"
 
 +++
-## My name is **George Oduor** and I'm a **Statistician** with passion in **Machine Learning and Artificial Intelligence**
+## My name is **George Oduor** .Crafting data-driven narratives that empower decisions. Explore my journey.
+
 

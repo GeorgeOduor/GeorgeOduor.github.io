@@ -42,6 +42,8 @@ hero_media = "hero.gif"
   label = "Contact me"
 
 +++
-## My name is **George Oduor** .Crafting data-driven narratives that empower decisions. Explore my journey.
+
+
+## Hello, I'm **George**, dedicated to crafting data-driven narratives that empower decisions. Explore my journey.
 
 

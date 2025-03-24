@@ -2,7 +2,7 @@
 authors:
 - George Oduor
 avatar_image: 'full2.jpg'
-bio: I'm a data enthusiast and problem solver with a passion for leveraging technology to drive innovation. With a background in data science and a keen interest in Fintech and AI, I'm dedicated to crafting data-driven solutions that empower businesses and individuals.
+bio: I'm a data enthusiast and problem solver with a passion for leveraging technology to drive innovation. With a background in statistics and data science and a keen interest in Fintech and AI, I'm dedicated to crafting data-driven solutions that empower businesses and individuals.
 
 btn:
 - label: Download My Resume
@@ -41,9 +41,10 @@ interests:
 
 name: George Oduor
 organizations:
-- name: Maisha Bank
-  url: maishabank.com
-role: Data Analyst
+- name: CreditInfo  
+  url: https://ke.creditinfo.com/
+role: Decision Analyst Lead
+
 social:
 - icon: envelope
   icon_pack: fas

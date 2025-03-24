@@ -35,7 +35,7 @@ subtitle = "I AM REALLY GOOD AT THE FOLLOWING TECHNICAL SKILLS."
 [[feature]]
   icon = "searchengin"
   icon_pack = "fab"
-  name = "Research"
+  name = "Research and Development"
   parcent = "95%"
 
 +++
